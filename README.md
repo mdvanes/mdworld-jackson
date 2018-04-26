@@ -1,3 +1,26 @@
+# mdworld theme "Jackson"
+
+Modern stack for mdworld.nl. Uses JAMstack with [GatsbyJS](https://www.gatsbyjs.org/docs/) (PWA traits), React, TypeScript and API calls to medium.com. Hosting on Github Pages and SSL with Cloudflare.
+
+* Material Design theme https://github.com/Vagr9K/gatsby-material-starter
+* Material Design colors https://react-md.mlaursen.com/customization/colors
+* fix min-height with flexbox (see about page)
+* disable twitter etc plugins
+* Get overview of all Medium.com publications with https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-medium
+* Get specific Medium.com post (maybe https://github.com/jondubin/gatsby-source-rss)
+* Merge Medium.com publications with Markdown/React posts
+* Cache API calls (service worker)
+* SSL with Cloudflare, instructions https://hackernoon.com/set-up-ssl-on-github-pages-with-custom-domains-for-free-a576bdf51bc
+* Hosting on Github Pages mdworld.github.io
+* CI/CD with Travis ?.travis.org
+
+## Naming theme
+
+http://nl.wikipedia.org/wiki/USA_for_Africa
+
+
+# Readme
+
 [![Code Climate](https://codeclimate.com/github/Vagr9K/gatsby-material-starter/badges/gpa.svg)](https://codeclimate.com/github/Vagr9K/gatsby-material-starter)
 [![Issue Count](https://codeclimate.com/github/Vagr9K/gatsby-material-starter/badges/issue_count.svg)](https://codeclimate.com/github/Vagr9K/gatsby-material-starter)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/990fb54ea8094f2aa0ed77f14e859820)](https://www.codacy.com/app/Vagr9K/gatsby-material-starter?utm_source=github.com&utm_medium=referral&utm_content=Vagr9K/gatsby-material-starter&utm_campaign=Badge_Grade)
