@@ -9,10 +9,11 @@ class Navigation extends Component {
   render() {
     const { children, config, LocalTitle } = this.props;
     const footerLinks = LocalTitle !== "About";
+    const toolbarTitle = LocalTitle === 'Home' ? config.siteTitleAlt : LocalTitle;
     return (
       <NavigationDrawer
         drawerTitle={config.siteTitle}
-        toolbarTitle={LocalTitle}
+        toolbarTitle={toolbarTitle}
         contentClassName="main-content"
         navItems={GetNavList(config)}
         mobileDrawerType={NavigationDrawer.DrawerTypes.TEMPORARY}
