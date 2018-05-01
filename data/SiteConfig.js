@@ -1,7 +1,7 @@
 module.exports = {
   blogPostDir: "sample-posts", // The name of directory that contains your posts.
-  siteTitle: "mdworld", // Site title.
-  siteTitleAlt: "mdworld, a webdevelopment blog", // Alternative site title for SEO.
+  siteTitle: "MDWorld", // Site title.
+  siteTitleAlt: "MDWorld, a webdevelopment blog", // Alternative site title for SEO.
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
   siteUrl: "https://vagr9k.github.io", // Domain of your website without pathPrefix.
   pathPrefix: "/gatsby-material-starter", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
@@ -22,19 +22,24 @@ module.exports = {
   userLinks: [
     {
       label: "GitHub",
-      url: "https://github.com/Vagr9K/gatsby-material-starter",
+      url: "https://github.com/mdvanes",
       iconClassName: "fa fa-github"
     },
     {
-      label: "Twitter",
-      url: "https://twitter.com/Vagr9K",
-      iconClassName: "fa fa-twitter"
+      label: "Bitbucket",
+      url: "https://bitbucket.org/mdvanes",
+      iconClassName: "fa fa-bitbucket"
     },
     {
-      label: "Email",
-      url: "mailto:vagr9k@gmail.com",
-      iconClassName: "fa fa-envelope"
-    }
+      label: "Twitter",
+      url: "https://twitter.com/mdworldnl",
+      iconClassName: "fa fa-twitter"
+    },
+    // {
+    //   label: "Email",
+    //   url: "mailto:example@example.com",
+    //   iconClassName: "fa fa-envelope"
+    // }
   ],
   copyright: "Copyright © 2017. Material User" // Copyright string for the footer of the website and RSS feed.
 };
