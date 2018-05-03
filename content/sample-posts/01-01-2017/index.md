@@ -1,9 +1,10 @@
 ---
-layout: post
-title: ! 'Polymer 2 and TypeScript'
+title: "Polymer 2 and TypeScript"
 cover: "https://unsplash.it/400/300/?random?BoldMage"
-categories: webdevelopment
-excerpt: Unfortunately, adding TypeScript to a Polymer 2 development stack proves to be cumbersome...
+date: "12/09/2017"
+category: "webdevelopment"
+tags:
+    - polymer
 ---
 
 # Polymer 2 and TypeScript
