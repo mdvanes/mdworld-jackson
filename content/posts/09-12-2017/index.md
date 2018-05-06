@@ -1,13 +1,11 @@
 ---
 title: "Polymer 2 and TypeScript"
-cover: "https://unsplash.it/400/300/?random?BoldMage"
+cover: "https://picsum.photos/800/600?image=0"
 date: "12/09/2017"
 category: "webdevelopment"
 tags:
-    - polymer
+    - webdevelopment
 ---
-
-# Polymer 2 and TypeScript
 
 For [reasons beyond my control](http://mdworld.nl/blog/webdevelopment/2017/07/30/polymer2-redux/) I'm working with
 Polymer 2 at the moment. Although the idea of web components is great, the choice for HTML imports that comes with
