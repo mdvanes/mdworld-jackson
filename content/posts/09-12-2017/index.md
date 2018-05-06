@@ -113,10 +113,10 @@ Adding the ts-loader to the rule for the HTML files breaks compilation:
 
 Even without changing any of the code itself, compilation fails with:
 
-`
+```
 ERROR in ./src/polygram-app.html
 Module build failed: Error: Could not find file: '/home/me/polygram/src/polygram-app.html'.
-`
+```
 
 Well, that just doesn't look healthy. I filed [a bug](https://github.com/webpack-contrib/polymer-webpack-loader/issues/64) 
 and almost 2 months after my report the maintainers closed the issue commenting that the root cause is with Webpack, so I 
@@ -467,7 +467,10 @@ function readonly(target, key, descriptor) {
 }
 ```
 
-The compiler fails with: `error TS1219: Experimental support for decorators is a feature that is subject to change in a future release. Set the 'experimentalDecorators' option to remove this warning.`
+The compiler fails with: 
+```
+error TS1219: Experimental support for decorators is a feature that is subject to change in a future release. Set the 'experimentalDecorators' option to remove this warning.
+```
 
 This flag can be added to the compilerOptions section of the tsconfig.json: `'experimentalDecorators': true`. The 
 compilation now succeeds, but prepends a small polyfill for `decorator` to the output. Take this into account when using 
