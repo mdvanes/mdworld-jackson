@@ -1,16 +1,16 @@
 import React, { Component } from "react";
 import {
-  FacebookShareButton,
+  // FacebookShareButton,
   GooglePlusShareButton,
   LinkedinShareButton,
   TwitterShareButton,
   TelegramShareButton,
   RedditShareButton,
-  FacebookShareCount,
-  GooglePlusShareCount,
-  LinkedinShareCount,
-  RedditShareCount,
-  FacebookIcon,
+  // FacebookShareCount,
+  // GooglePlusShareCount,
+  // LinkedinShareCount,
+  // RedditShareCount,
+  // FacebookIcon,
   TwitterIcon,
   TelegramIcon,
   GooglePlusIcon,
@@ -26,40 +26,40 @@ class SocialLinks extends Component {
     const post = postNode.frontmatter;
     const url = config.siteUrl + config.pathPrefix + postPath;
     const iconSize = mobile ? 36 : 48;
-    const filter = count => (count > 0 ? count : "");
+    // const filter = count => (count > 0 ? count : "");
 
     return (
       <div className="social-links">
         <RedditShareButton url={url} title={post.title}>
           <RedditIcon round size={iconSize} />
-          <RedditShareCount url={url}>
+          {/* <RedditShareCount url={url}>
             {count => <div className="share-count">{filter(count)}</div>}
-          </RedditShareCount>
+          </RedditShareCount> */}
         </RedditShareButton>
         <TwitterShareButton url={url} title={post.title}>
           <TwitterIcon round size={iconSize} />
         </TwitterShareButton>
         <GooglePlusShareButton url={url}>
           <GooglePlusIcon round size={iconSize} />
-          <GooglePlusShareCount url={url}>
+          {/* <GooglePlusShareCount url={url}>
             {count => <div className="share-count">{filter(count)}</div>}
-          </GooglePlusShareCount>
+          </GooglePlusShareCount> */}
         </GooglePlusShareButton>
-        <FacebookShareButton url={url} quote={postNode.excerpt}>
+        {/* <FacebookShareButton url={url} quote={postNode.excerpt}>
           <FacebookIcon round size={iconSize} />
           <FacebookShareCount url={url}>
             {count => <div className="share-count">{filter(count)}</div>}
           </FacebookShareCount>
-        </FacebookShareButton>
+        </FacebookShareButton> */}
         <LinkedinShareButton
           url={url}
           title={post.title}
           description={postNode.excerpt}
         >
           <LinkedinIcon round size={iconSize} />
-          <LinkedinShareCount url={url}>
+          {/* <LinkedinShareCount url={url}>
             {count => <div className="share-count">{filter(count)}</div>}
-          </LinkedinShareCount>
+          </LinkedinShareCount> */}
         </LinkedinShareButton>
         <TelegramShareButton url={url}>
           <TelegramIcon round size={iconSize} />
