@@ -46,5 +46,5 @@ module.exports = {
     //   iconClassName: "fa fa-envelope"
     // }
   ],
-  copyright: "<a href=\"https://creativecommons.org/licenses/by-nc-sa/3.0/\">License</a> 2018 MDWorld" // Copyright string for the footer of the website and RSS feed.
+  copyright: "MDWorld" // Copyright string for the footer of the website and RSS feed.
 };
