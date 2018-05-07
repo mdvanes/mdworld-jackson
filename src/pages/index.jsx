@@ -3,6 +3,7 @@ import Helmet from "react-helmet";
 import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
+import Hero from "../components/Hero/Hero";
 
 class Index extends React.Component {
   render() {
@@ -14,6 +15,7 @@ class Index extends React.Component {
           <link rel="canonical" href={`${config.siteUrl}`} />
         </Helmet>
         <SEO postEdges={postEdges} />
+        <Hero />
         <PostListing postEdges={postEdges} />
       </div>
     );
