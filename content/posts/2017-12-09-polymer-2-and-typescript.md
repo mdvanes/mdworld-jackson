@@ -1,7 +1,7 @@
 ---
 title: "Polymer 2 and TypeScript"
 cover: "https://picsum.photos/800/600?image=0"
-date: "12/09/2017"
+date: "09-12-2017"
 category: "webdevelopment"
 tags:
     - webdevelopment
