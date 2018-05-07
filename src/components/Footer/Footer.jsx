@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Button from "react-md/lib/Buttons";
 import Link from "gatsby-link";
+import FontIcon from "react-md/lib/FontIcons";
 import UserLinks from "../UserLinks/UserLinks";
 import config from "../../../data/SiteConfig";
 import "./Footer.scss";
@@ -9,8 +10,14 @@ class Footer extends Component {
   render() {
     const url = config.siteRss;
     const { userLinks } = this.props;
-    const copyright = config.copyright;
-    const fixedFooter = config.fixedFooter;
+    const { copyright, fixedFooter } = config;
+    const copyrightLine = (
+      <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">
+        <Button flat secondary iconClassName="fa fa-creative-commons">
+          {new Date().getFullYear()} {copyright}
+        </Button>
+      </a>
+    );
     if (!copyright) {
       return null;
     }
@@ -19,7 +26,9 @@ class Footer extends Component {
         {userLinks ? <UserLinks config={config} labeled /> : null}
         <div className="notice-container">
           <div className="copyright">
-            <h4>{copyright}</h4>
+            <h4>
+              {copyrightLine}
+            </h4>
           </div>
 
           <div className="rss">
