@@ -1,7 +1,7 @@
 ---
 title: "Reducing cyclomatic complexity with functional operators"
 cover: "https://picsum.photos/800/600?image=0"
-date: "10/02/2017"
+date: "02-10-2017"
 category: "webdevelopment"
 tags:
     - webdevelopment
