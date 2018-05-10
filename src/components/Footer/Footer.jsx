@@ -14,7 +14,7 @@ class Footer extends Component {
     const copyrightLine = (
       <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">
         <Button flat secondary iconClassName="fa fa-creative-commons">
-          {new Date().getFullYear()} {copyright}
+          2003-{new Date().getFullYear()} {copyright}
         </Button>
       </a>
     );
@@ -26,11 +26,8 @@ class Footer extends Component {
         {userLinks ? <UserLinks config={config} labeled /> : null}
         <div className="notice-container">
           <div className="copyright">
-            <h4>
-              {copyrightLine}
-            </h4>
+            {copyrightLine}
           </div>
-
           <div className="rss">
             <Link to={url}>
               <Button flat secondary iconClassName="fa fa-rss">
@@ -39,12 +36,11 @@ class Footer extends Component {
             </Link>
           </div>
           <div className="based-on">
-            <h4>
-              Based on{" "}
-              <a href="https://github.com/Vagr9K/gatsby-material-starter">
-                Gatsby Material Starter
-              </a>.
-            </h4>
+            <Link to='/about'>
+              <Button flat secondary>
+                    Attribution and credits
+              </Button>
+            </Link>
           </div>
         </div>
       </footer>
