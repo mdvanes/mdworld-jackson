@@ -4,10 +4,16 @@ const webpackLodashPlugin = require("lodash-webpack-plugin");
 
 const postNodes = [];
 
+/* parse date string in format dd-mm-yyyy */
+function parseDate(dateString) {
+  const [day, month1Indexed, year] = dateString.split('-');
+  return new Date(year, month1Indexed - 1, day);
+}
+
 function addSiblingNodes(createNodeField) {
   postNodes.sort(
-    ({ frontmatter: { date: date1 } }, { frontmatter: { date: date2 } }) =>
-      new Date(date1) - new Date(date2)
+    ({ fields: { date: date1 } }, { fields: { date: date2 } }) =>
+      date1 - date2
   );
   for (let i = 0; i < postNodes.length; i += 1) {
     const nextID = i + 1 < postNodes.length ? i + 1 : 0;
@@ -63,6 +69,8 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       slug = `/${_.kebabCase(node.frontmatter.slug)}`;
     }
     createNodeField({ node, name: "slug", value: slug });
+    const sortDate = parseDate(node.frontmatter.date).getTime();
+    createNodeField({ node, name: "sortDate", value: sortDate });
     postNodes.push(node);
   }
 };
