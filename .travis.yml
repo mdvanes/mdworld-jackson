@@ -15,6 +15,6 @@ deploy:
     repo: mdvanes/mdvanes.github.io
     target_branch: master
     local_dir: public
-    #fqdn: www.mdworld.nl
+    fqdn: www.mdvan.es
     on:
       branch: master
