@@ -1,19 +1,36 @@
+@import '~react-md/src/scss/react-md';
+
 .mdworld-hero {
-  margin-top: 10px;
-  overflow: hidden;
+    margin-top: 10px;
+    overflow: hidden;
 
-  h1, h2 {
-    color: white;
-  }
+    h1,
+    h2 {
+        color: white;
+    }
 
-  h1 {
-    display: block;
-    font-size: 11rem;
-    font-weight: bold;
-    line-height: 1em;
-  }
+    h1 {
+        display: block;
+        font-size: 9.5vw;
+        font-weight: bold;
+        line-height: 1em;
 
-  h2 {
-    font-size: 2rem;
-  }
+        @media screen and (max-width: $md-tablet-min-width) {
+            font-size: 19vw;
+        }
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .img-wrapper {
+        text-align: center;
+
+        img {
+            margin-top: 1rem;
+            max-width: 235px;
+            width: 100%;
+        }
+    }
 }
