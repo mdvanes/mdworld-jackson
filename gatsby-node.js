@@ -10,17 +10,13 @@ function parseDate(dateString) {
   return new Date(year, month1Indexed - 1, day);
 }
 
-function addSiblingNodes(createNodeField) {
-  postNodes.sort(
-    ({ fields: { date: date1 } }, { fields: { date: date2 } }) =>
-      date1 - date2
-  );
-  for (let i = 0; i < postNodes.length; i += 1) {
-    const nextID = i + 1 < postNodes.length ? i + 1 : 0;
-    const prevID = i - 1 > 0 ? i - 1 : postNodes.length - 1;
-    const currNode = postNodes[i];
-    const nextNode = postNodes[nextID];
-    const prevNode = postNodes[prevID];
+function addSiblingNodesForFiltered(createNodeField, filteredPostNodes) {
+  for (let i = 0; i < filteredPostNodes.length; i += 1) {
+    const nextID = i + 1 < filteredPostNodes.length ? i + 1 : 0;
+    const prevID = i - 1 > 0 ? i - 1 : filteredPostNodes.length - 1;
+    const currNode = filteredPostNodes[i];
+    const nextNode = filteredPostNodes[nextID];
+    const prevNode = filteredPostNodes[prevID];
     createNodeField({
       node: currNode,
       name: "nextTitle",
@@ -42,6 +38,47 @@ function addSiblingNodes(createNodeField) {
       value: prevNode.fields.slug
     });
   }
+}
+
+function addSiblingNodes(createNodeField) {
+  // console.log(postNodes[0].frontmatter.category, postNodes.length)
+  postNodes.sort(
+    ({ fields: { date: date1 } }, { fields: { date: date2 } }) =>
+      date1 - date2
+  );
+
+  // postNodes = postNodes.filter(n => n.frontmatter.category === 'webdevelopment');
+  // console.log('2>', postNodes.length)
+  addSiblingNodesForFiltered(createNodeField, postNodes.filter(n => n.frontmatter.category === 'webdevelopment'));
+  addSiblingNodesForFiltered(createNodeField, postNodes.filter(n => n.frontmatter.category === 'mypc'));
+
+  // for (let i = 0; i < postNodes.length; i += 1) {
+  //   const nextID = i + 1 < postNodes.length ? i + 1 : 0;
+  //   const prevID = i - 1 > 0 ? i - 1 : postNodes.length - 1;
+  //   const currNode = postNodes[i];
+  //   const nextNode = postNodes[nextID];
+  //   const prevNode = postNodes[prevID];
+  //   createNodeField({
+  //     node: currNode,
+  //     name: "nextTitle",
+  //     value: nextNode.frontmatter.title
+  //   });
+  //   createNodeField({
+  //     node: currNode,
+  //     name: "nextSlug",
+  //     value: nextNode.fields.slug
+  //   });
+  //   createNodeField({
+  //     node: currNode,
+  //     name: "prevTitle",
+  //     value: prevNode.frontmatter.title
+  //   });
+  //   createNodeField({
+  //     node: currNode,
+  //     name: "prevSlug",
+  //     value: prevNode.fields.slug
+  //   });
+  // }
 }
 
 exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
