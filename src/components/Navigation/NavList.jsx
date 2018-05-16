@@ -11,6 +11,12 @@ function GetNavList(config) {
       to: "/"
     },
     {
+      primaryText: "My PC",
+      leftIcon: <FontIcon>computer</FontIcon>,
+      component: Link,
+      to: "/mypc"
+    },
+    {
       divider: true
     }
   ];

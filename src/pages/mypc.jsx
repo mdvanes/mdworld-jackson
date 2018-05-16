@@ -5,9 +5,10 @@ import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 import Hero from "../components/Hero/Hero";
 
-class Index extends React.Component {
+class MyPC extends React.Component {
   render() {
     const postEdges = this.props.data.allMarkdownRemark.edges;
+
     return (
       <div className="index-container">
         <Helmet>
@@ -15,21 +16,20 @@ class Index extends React.Component {
           <link rel="canonical" href={`${config.siteUrl}`} />
         </Helmet>
         <SEO postEdges={postEdges} />
-        <Hero />
         <PostListing postEdges={postEdges} />
       </div>
     );
   }
 }
 
-export default Index;
+export default MyPC;
 
 /* eslint no-undef: "off" */
 export const pageQuery = graphql`
-  query IndexQuery {
+  query MyPCQuery {
     allMarkdownRemark(
       limit: 2000
-      filter: { frontmatter: { category: { eq: "webdevelopment" } }}      
+      filter: { frontmatter: { category: { eq: "mypc" } }}
       sort: { fields: [fields___sortDate], order: DESC }
     ) {
       edges {
