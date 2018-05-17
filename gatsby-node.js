@@ -75,6 +75,10 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       slug = `/${_.kebabCase(node.frontmatter.slug)}`;
     }
     createNodeField({ node, name: "slug", value: slug });
+    // // console.log(node.frontmatter.date)
+    // if(!node.frontmatter.date) {
+    //   console.log(node.frontmatter)
+    // }
     const sortDate = parseDate(node.frontmatter.date).getTime();
     createNodeField({ node, name: "sortDate", value: sortDate });
     postNodes.push(node);
