@@ -103,5 +103,54 @@
     "date": "15-11-2010",
     "category": "webdevelopment",
     "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2010/11/15/fronteers-2010-html/"
+  },
+  {
+    "title": "Dop Ubuntu 14.04 freezes after login",
+    "cover": "https://picsum.photos/g/800/600?image=0",
+    "date": "02-10-2014",
+    "category": "mypc",
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/10/02/dop-ubuntu-1404-freezes-after-login/"
+  },
+  {
+    "title": "Running WoW updater",
+    "cover": "https://picsum.photos/g/800/600?image=0",
+    "date": "07-09-2014",
+    "category": "mypc",
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/09/07/running-wow-updater/"
+  },
+  {
+    "title": "Trusty Broek LTS",
+    "cover": "https://picsum.photos/g/800/600?image=0",
+    "date": "17-08-2014",
+    "category": "mypc",
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/08/17/trusty-broek-lts/"
+  },
+  {
+    "title": "Dop monitors and multimedia keys",
+    "cover": "https://picsum.photos/g/800/600?image=0",
+    "date": "06-08-2014",
+    "category": "mypc",
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/08/06/dop-monitors-and-multimedia-keys/"
+  },
+  {
+    "title": "Bash script with multiple screen windows",
+    "cover": "https://picsum.photos/g/800/600?image=0",
+    "date": "02-10-2014",
+    "category": "mypc",
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/07/19/bash-script-with-multiple-screen-windows/"
+  },
+  {
+    "title": "Trusty dop",
+    "cover": "https://picsum.photos/g/800/600?image=0",
+    "date": "18-05-2014",
+    "category": "mypc",
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/05/18/trusty-dop/"
+  },
+  {
+    "title": "Owncloud server and PHP not working",
+    "cover": "https://picsum.photos/g/800/600?image=0",
+    "date": "02-04-2014",
+    "category": "mypc",
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/04/02/owncloud-server-and-php-not-working/"
   }
 ]
