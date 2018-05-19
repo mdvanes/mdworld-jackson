@@ -3,6 +3,7 @@ import {Grid, Cell} from 'react-md';
 import './Hero.scss';
 import logo from './logo.png';
 
+// TODO use custom font Delicious
 class Hero extends React.Component {
     render() {
         return (
