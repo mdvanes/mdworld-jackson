@@ -6,6 +6,7 @@ export default class HelloWorld extends React.Component {
   constructor() {
     super();
     this.myText = 'Hello, World!';
+    this.helloWorld = this.helloWorld.bind(this);
   }
 
   helloWorld() {
