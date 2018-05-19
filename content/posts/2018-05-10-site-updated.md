@@ -7,28 +7,45 @@ tags:
     - webdevelopment
 ---
 
+It's always a hard decision to move to a new platform for my personal site, and this time it was sped up by the growing
+need for https (for SEO) and the release of GatsbyJS v1. 
 
-Up until now I was using a monolitical Apache + PHP webserver, but since the last update
-of the site, this was no longer needed for the blog, because it was static.
+Up until now I was using a monolitical Apache + PHP webserver, but since the 2013 version of the site, a dynamic webserver
+was no longer needed for the blog, because it was generated statically with Jekyll. Only the "send mail" component was 
+in PHP and I was running some other PHP apps that were separate from the blog. I've done away with the PHP apps: 
+communication by mail was already almost zero and the other apps were outdated. 
 
-Only the "send mail" component was in PHP and I was running some other PHP apps
-that were separate from the blog.
+Now the blog has been properly containerized, this means future upgrades will be easier too: the blog is its own app
+with its own scope. 
 
-So now it has been split into "microservices" with distinct concerns that are much easier to maintain and upgrade.
+Another good reason to migrate from [Jekyll](https://jekyllrb.com/) to [Gatsby]https://www.gatsbyjs.org/() is letting go 
+of Ruby dependencies and migrating to a NodeJS
+based platform. With Jekyll I started to run into problems with recreating the Jekyll stack with the 
+correct dependencies to build the blog, in case of restoring after an emergency. This might be caused by my lack of knowledge
+of Ruby, but it meant it was really time to upgrade to a newer version of Jekyll or start with a new theme. And in the mean
+time, Gatsby 1.0 was released and I really subscribe to the [JAMstack](https://jamstack.org/) architecture.  
 
-Another good reason to migrate from [Jekyll] to [Gatsby] is letting go of Ruby dependencies and migrating to a NodeJS
-based platform. I ran into problems that it was not possible anymore to recreate the Jekyll stack with the 
-correct dependencies for the blog, in case of restoring after an emergency. This might be caused by my lack of knowledge
-with Ruby, but it was really time to upgrade to a newer version of Jekyll or start with a new theme. And in the mean
-time, Gatsby 1.0 was released and I really subscribe to their implementation of [JAMstack].  
-
-
-It is great that adding a post in Gatsby is just a matter of adding a markdown file with some frontmatter, and you can still
-run custom scripts in a post with mdx? https://github.com/gatsbyjs/gatsby/issues/312#issuecomment-387608217
+Just like in Jekyll, adding a post in Gatsby is just a matter of adding a Markdown file with some frontmatter. But an improvement
+is that you can still add a custom React component in a Markdown post. Try the button below and see the source for [this post](https://raw.githubusercontent.com/mdvanes/mdworld-jackson/master/content/posts/2018-05-10-site-updated.md). 
 
 <hello-world></hello-world>
 
+For more information about the current stack, see the [about page](about).
 
-[slideshow from the old themes over the years]
+# Old themes
 
-Static versions of the 2 last themes still run here (simon theme) and here (ingram theme).
+Static versions of the 2 last themes still run [here (2013-2018)](https://mdvanes.github.io/mdworld-ingram) 
+and [here (2010-2013)](https://mdvanes.github.io/mdworld-simon).
+
+**Theme 2013-2018**
+ 
+![Theme 2013-2018](theme-ingram.jpg)
+
+**Theme 2010-2013**
+ 
+![Theme 2010-2013](theme-simon.jpg)
+
+
+**Theme until 2010**
+ 
+![Theme until 2010](https://www.mdvan.es/mdworld-simon/sites/default/files/images/vorig_design.jpg)
