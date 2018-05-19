@@ -152,5 +152,33 @@
     "date": "02-04-2014",
     "category": "mypc",
     "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/04/02/owncloud-server-and-php-not-working/"
+  },
+  {
+    "title": "Installing IGP driver on Ubuntu 13.10",
+    "cover": "https://picsum.photos/g/800/600?image=0",
+    "date": "07-03-2014",
+    "category": "mypc",
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/03/07/installing-igp-driver-on-ubuntu-1310/"
+  },
+  {
+    "title": "Problems updating Broek",
+    "cover": "https://picsum.photos/g/800/600?image=0",
+    "date": "03-02-2014",
+    "category": "mypc",
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/02/03/problems-updating-broek/"
+  },
+  {
+    "title": "Running WoW 5.4",
+    "cover": "https://picsum.photos/g/800/600?image=0",
+    "date": "28-12-2013",
+    "category": "mypc",
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2013/12/28/wow-cata/"
+  },
+  {
+    "title": "Saucy dop",
+    "cover": "https://picsum.photos/g/800/600?image=0",
+    "date": "24-11-2013",
+    "category": "mypc",
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2013/11/24/saucy-dop/"
   }
 ]
