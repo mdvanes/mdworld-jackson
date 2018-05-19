@@ -1,9 +1,9 @@
 import React from "react";
 import Helmet from "react-helmet";
 import Card from "react-md/lib/Cards";
+import RehypeReact from "rehype-react";
 import CardText from "react-md/lib/Cards/CardText";
 import UserInfo from "../components/UserInfo/UserInfo";
-import Disqus from "../components/Disqus/Disqus";
 import PostTags from "../components/PostTags/PostTags";
 import PostCover from "../components/PostCover/PostCover";
 import PostInfo from "../components/PostInfo/PostInfo";
@@ -13,6 +13,12 @@ import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
 import "./post.scss";
+import HelloWorld from "../components/HelloWorld/HelloWorld";
+
+const renderAst = new RehypeReact({
+  createElement: React.createElement,
+  components: { "hello-world": HelloWorld },
+}).Compiler;
 
 export default class PostTemplate extends React.Component {
   constructor(props) {
@@ -67,7 +73,8 @@ export default class PostTemplate extends React.Component {
             <CardText className="post-body">
               <h1 className="md-display-2 post-header">{post.title}</h1>
               <PostInfo postNode={postNode} />
-              <div dangerouslySetInnerHTML={{ __html: postNode.html }} />
+               {/*<div dangerouslySetInnerHTML={{ __html: postNode.html }} />*/}
+              { renderAst(postNode.htmlAst) }
             </CardText>
             <div className="post-meta">
               <PostTags tags={post.tags} />
@@ -92,11 +99,12 @@ export default class PostTemplate extends React.Component {
   }
 }
 
-/* eslint no-undef: "off"*/
+/* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query BlogPostBySlug($slug: String!) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      htmlAst
       timeToRead
       excerpt
       frontmatter {

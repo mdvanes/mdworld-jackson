@@ -19,6 +19,12 @@ Modern stack for mdworld.nl. Uses JAMstack with [GatsbyJS](https://www.gatsbyjs.
 http://nl.wikipedia.org/wiki/USA_for_Africa
 
 
+## Adding React components to Markdown posts
+Add to render function in src/templates/post.jsx
+See also https://github.com/gatsbyjs/gatsby/blob/master/examples/using-remark/src/pages/2018-01-27---custom-components/index.md
+
+
+
 # Readme
 
 [![Code Climate](https://codeclimate.com/github/Vagr9K/gatsby-material-starter/badges/gpa.svg)](https://codeclimate.com/github/Vagr9K/gatsby-material-starter)

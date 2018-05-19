@@ -23,6 +23,11 @@ with Ruby, but it was really time to upgrade to a newer version of Jekyll or sta
 time, Gatsby 1.0 was released and I really subscribe to their implementation of [JAMstack].  
 
 
+It is great that adding a post in Gatsby is just a matter of adding a markdown file with some frontmatter, and you can still
+run custom scripts in a post with mdx? https://github.com/gatsbyjs/gatsby/issues/312#issuecomment-387608217
+
+<hello-world></hello-world>
+
 
 [slideshow from the old themes over the years]
 
