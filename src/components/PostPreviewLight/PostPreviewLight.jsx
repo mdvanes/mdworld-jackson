@@ -3,14 +3,11 @@ import Card from "react-md/lib/Cards/Card";
 import CardTitle from "react-md/lib/Cards/CardTitle";
 import Button from "react-md/lib/Buttons";
 import Avatar from "react-md/lib/Avatars";
-import CardText from "react-md/lib/Cards/CardText";
 import FontIcon from "react-md/lib/FontIcons";
-import GatsbyLink from "gatsby-link";
 import Media, { MediaOverlay } from "react-md/lib/Media";
-import PostTags from "../PostTags/PostTags";
-import "./PostPreview.scss";
+import "../PostPreview/PostPreview.scss";
 
-class PostPreview extends Component {
+class PostPreviewLight extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -45,7 +42,7 @@ class PostPreview extends Component {
     const coverHeight = mobile ? 162 : 225;
     return (
       <Card key={postInfo.path} raise className="md-grid md-cell md-cell--12">
-        <GatsbyLink style={{ textDecoration: "none" }} to={postInfo.path}>
+        <a style={{ textDecoration: "none" }} href={postInfo.path}>
           <Media
             style={{
               backgroundImage: `url(${cover})`,
@@ -61,21 +58,15 @@ class PostPreview extends Component {
               </CardTitle>
             </MediaOverlay>
           </Media>
-        </GatsbyLink>
+        </a>
         <CardTitle
           expander={expand}
           avatar={<Avatar icon={<FontIcon iconClassName="fa fa-calendar" />} />}
           title={`Published on ${postInfo.date}`}
-          subtitle={`${postInfo.timeToRead} min read`}
         />
-
-        <CardText expandable={expand}>
-          {postInfo.excerpt}
-          <PostTags tags={postInfo.tags} />
-        </CardText>
       </Card>
     );
   }
 }
 
-export default PostPreview;
+export default PostPreviewLight;

@@ -5,6 +5,9 @@ import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 import Hero from "../components/Hero/Hero";
 
+// TODO do not duplicate categoryname in graphql: https://www.gatsbyjs.org/docs/querying-with-graphql/
+const category = 'webdevelopment';
+
 class Index extends React.Component {
   render() {
     const postEdges = this.props.data.allMarkdownRemark.edges;
@@ -16,7 +19,7 @@ class Index extends React.Component {
         </Helmet>
         <SEO postEdges={postEdges} />
         <Hero />
-        <PostListing postEdges={postEdges} />
+        <PostListing postEdges={postEdges} category={category} />
       </div>
     );
   }

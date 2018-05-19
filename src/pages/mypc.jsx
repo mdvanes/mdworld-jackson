@@ -4,6 +4,9 @@ import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
+// TODO do not duplicate categoryname in graphql: https://www.gatsbyjs.org/docs/querying-with-graphql/
+const category = 'mypc';
+
 class MyPC extends React.Component {
   render() {
     const postEdges = this.props.data.allMarkdownRemark.edges;
@@ -15,7 +18,7 @@ class MyPC extends React.Component {
           <link rel="canonical" href={`${config.siteUrl}`} />
         </Helmet>
         <SEO postEdges={postEdges} />
-        <PostListing postEdges={postEdges} />
+        <PostListing postEdges={postEdges} category={category} />
       </div>
     );
   }
