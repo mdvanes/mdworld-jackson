@@ -9,5 +9,10 @@ $md-tertiary-color: $md-grey-700;
 }
 
 a:link {
+    text-decoration: none;
+}
+
+.post-html a:link {
     color: $md-orange-800;
+    text-decoration: underline;
 }
