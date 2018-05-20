@@ -73,8 +73,8 @@ export default class PostTemplate extends React.Component {
             <CardText className="post-body">
               <h1 className="md-display-2 post-header">{post.title}</h1>
               <PostInfo postNode={postNode} />
-               {/*<div dangerouslySetInnerHTML={{ __html: postNode.html }} />*/}
-              { renderAst(postNode.htmlAst) }
+              {/* <div dangerouslySetInnerHTML={{ __html: postNode.html }} /> */}
+              <div className="post-html">{ renderAst(postNode.htmlAst) }</div>
             </CardText>
             <div className="post-meta">
               <PostTags tags={post.tags} />
