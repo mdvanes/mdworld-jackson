@@ -51,4 +51,4 @@ and [here (2010-2013)](https://mdvanes.github.io/mdworld-simon).
 
 **Theme until 2010**
  
-![Theme until 2010](https://www.mdvan.es/mdworld-simon/sites/default/files/images/vorig_design.jpg)
+![Theme until 2010](https://mdvanes.github.io/mdworld-simon/sites/default/files/images/vorig_design.jpg)
