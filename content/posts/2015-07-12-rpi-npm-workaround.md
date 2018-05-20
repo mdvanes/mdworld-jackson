@@ -24,7 +24,7 @@ Or if I would like to read the log file afterwards:
 ```node node_modules/bunyan/bin/bunyan -o short error.log```
 
 
-This would also work for other systems where npm can't be installed or if npm can't be used to install packages. I've used this on a system behind a corporate proxy, although I've found [a better way]({{ site.baseurl }}/webdevelopment/2015/07/07/npm-without-internet) by now.
+This would also work for other systems where npm can't be installed or if npm can't be used to install packages. I've used this on a system behind a corporate proxy, although I've found [a better way](../npm-without-internet) by now.
 
 
 # Node on RPi
