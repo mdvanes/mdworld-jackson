@@ -1,8 +1,12 @@
 const path = require("path");
 const _ = require("lodash");
 const webpackLodashPlugin = require("lodash-webpack-plugin");
+const generateCovers = require('procgen-cover');
+const crypto = require('crypto');
+const fs = require('fs');
 
-const postNodes = [];
+let postNodes = [];
+let createCoverHasRun = false;
 
 /* parse date string in format dd-mm-yyyy */
 function parseDate(dateString) {
@@ -75,7 +79,7 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
       slug = `/${_.kebabCase(node.frontmatter.slug)}`;
     }
     createNodeField({ node, name: "slug", value: slug });
-    // // console.log(node.frontmatter.date)
+    // console.log(node.frontmatter)
     // if(!node.frontmatter.date) {
     //   console.log(node.frontmatter)
     // }
@@ -85,11 +89,44 @@ exports.onCreateNode = ({ node, boundActionCreators, getNode }) => {
   }
 };
 
+function addHash(node) {
+  const shasum = crypto.createHash('sha1');
+  shasum.update(JSON.stringify({
+    title: node.frontmatter.title,
+    date: node.frontmatter.date
+  }));
+  const hash = shasum.digest('hex');
+  const newNode = node;
+  newNode.frontmatter.cover = `./cover/${hash}.png`;
+  newNode.hash = hash;
+  return newNode;
+}
+
+/* Batch for all articles at once */
+function createCoverArt(hashArr) {
+  const coverPath = 'static/cover';
+  const filteredHashArr = hashArr.filter(hash => {
+    const hashCoverPath = `${coverPath}/${hash}.png`;
+    return !fs.existsSync(hashCoverPath);
+  });
+  if(filteredHashArr && filteredHashArr.length > 0) {
+    generateCovers(coverPath, true, true, filteredHashArr);
+  } else {
+    console.log('All covers already exist, no covers generated')
+  }
+}
+
 exports.setFieldsOnGraphQLNodeType = ({ type, boundActionCreators }) => {
   const { name } = type;
   const { createNodeField } = boundActionCreators;
   if (name === "MarkdownRemark") {
+    // Post processing
     addSiblingNodes(createNodeField);
+    postNodes = postNodes.map(addHash);
+    if(!createCoverHasRun) {
+      createCoverArt(postNodes.map(node => node.hash));
+      createCoverHasRun = !createCoverHasRun;
+    }
   }
 };
 
