@@ -7,7 +7,7 @@ tags:
     - webdevelopment
 ---
 
-As I noted in [my previous post about Fronteers 2014]({{ site.baseurl }}/webdevelopment/2015/01/20/fronteers-2014-css/) there were not as many talks about usable new techniques or tools as I would have liked. This doesn't mean that no interesting new terms were mentioned. That's why I will supply a list of the subjects that were new to me.
+As I noted in [my previous post about Fronteers 2014](../fronteers-2014-css/) there were not as many talks about usable new techniques or tools as I would have liked. This doesn't mean that no interesting new terms were mentioned. That's why I will supply a list of the subjects that were new to me.
 
 <style>
 .gloss {

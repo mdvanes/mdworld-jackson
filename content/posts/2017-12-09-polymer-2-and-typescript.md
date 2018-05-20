@@ -6,7 +6,7 @@ category: "webdevelopment"
 tags:
     - webdevelopment
 ---
-For [reasons beyond my control](http://mdworld.nl/blog/webdevelopment/2017/07/30/polymer2-redux/) I'm working with
+For [reasons beyond my control](../polymer-2-and-redux/) I'm working with
 Polymer 2 at the moment. Although the idea of web components is great, the choice for HTML imports that comes with
 Polymer 2 makes integration into a modern development stack cumbersome, as will become clear soon. Also, HTML
 imports are not widely supported by browsers and although polyfills exist, only [Chrome (surprise!)](https://caniuse.com/#search=html%20imports) 
