@@ -9,7 +9,7 @@ tags:
 
 30-2-2015
 
-I'm replacing the 128GB SSD (Samsung 840 pro) by a 500GB SSD (Samsung 850 EVO) so I have enough space to move the /home partition to the SSD as well. I also had [the problem]({{site.baseurl}}/mypc/2015/03/02/dop-wont-boot/) that suddenly my SSD is no longer booting, without using super grub disk, so I might solve this as well.
+I'm replacing the 128GB SSD (Samsung 840 pro) by a 500GB SSD (Samsung 850 EVO) so I have enough space to move the /home partition to the SSD as well. I also had [the problem](../dop-wont-boot-and-usb-issues/) that suddenly my SSD is no longer booting, without using super grub disk, so I might solve this as well.
 
 Currently, I have the SSD with the boot and root partitions on it, a 320GB HDD with the /home (ext3) and swap partitions and a 1,5 TB HDD for storage. I will replace the SSD and the 320GB by the 500GB SSD.
 
