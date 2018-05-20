@@ -60,4 +60,4 @@ bundle-stats.json
 
 .idea
 
-static/cover
+static/cover/*.png
