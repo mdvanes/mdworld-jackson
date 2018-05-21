@@ -35,6 +35,12 @@ see the source for [this post](https://raw.githubusercontent.com/mdvanes/mdworld
 
 For more information about the current stack, see the [about page](../about).
 
+# Cover images
+
+The cover images for each post, e.g. the image you see on top of this post, are procedurally generated 
+with my project [procgen-cover](https://github.com/mdvanes/procgen-cover). This was inspired by the talk 
+by [Kate Compton](http://www.galaxykate.com/) on [JSConf.is](https://2018.jsconf.is/) 2018. 
+
 # Old themes
 
 Static versions of the 2 last themes still run [here (2013-2018)](https://mdvanes.github.io/mdworld-ingram) 
