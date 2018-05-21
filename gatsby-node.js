@@ -6,7 +6,6 @@ const crypto = require('crypto');
 const fs = require('fs');
 
 let postNodes = [];
-let createCoverHasRun = false;
 
 /* parse date string in format dd-mm-yyyy */
 function parseDate(dateString) {
@@ -104,16 +103,18 @@ function addHash(node) {
 
 /* Batch for all articles at once */
 function createCoverArt(hashArr) {
+  let result = '';
   const coverPath = 'static/cover';
   const filteredHashArr = hashArr.filter(hash => {
     const hashCoverPath = `${coverPath}/${hash}.png`;
     return !fs.existsSync(hashCoverPath);
   });
   if(filteredHashArr && filteredHashArr.length > 0) {
-    generateCovers(coverPath, true, true, filteredHashArr);
+     result = generateCovers(coverPath, true, true, filteredHashArr);
   } else {
-    console.log('All covers already exist, no covers generated')
+    result = new Promise(resolve => resolve({status: 'All covers already exist, no covers generated'}));
   }
+  return result;
 }
 
 exports.setFieldsOnGraphQLNodeType = ({ type, boundActionCreators }) => {
@@ -123,12 +124,13 @@ exports.setFieldsOnGraphQLNodeType = ({ type, boundActionCreators }) => {
     // Post processing
     addSiblingNodes(createNodeField);
     postNodes = postNodes.map(addHash);
-    if(!createCoverHasRun) {
-      createCoverArt(postNodes.map(node => node.hash));
-      createCoverHasRun = !createCoverHasRun;
-    }
   }
 };
+
+exports.onPostBootstrap = () => createCoverArt(postNodes.map(node => node.hash))
+  .then(result => {
+    console.log(`createCoverArt result: ${result && result.status}`)
+  });
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
