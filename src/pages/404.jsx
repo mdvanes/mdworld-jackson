@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import Helmet from "react-helmet";
-import About from "../components/About/About";
-import config from "../../data/SiteConfig";
 import Card from "react-md/lib/Cards/Card";
 import CardText from "react-md/lib/Cards/CardText";
+import config from "../../data/SiteConfig";
+
+function isLiftDomain() {
+  return typeof window !== 'undefined' &&
+    (window.location.host.split('.')[0] === 'lift' || window.location.href.indexOf('lift') > -1);
+}
 
 class NotFoundPage extends Component {
   constructor(props) {
@@ -14,7 +18,7 @@ class NotFoundPage extends Component {
   }
 
   componentWillMount() {
-    if(window.location.host.split('.')[0] === 'lift' || window.location.href.indexOf('lift') > -1) {
+    if(isLiftDomain()) {
       this.setState({message: 'You are being redirected to LIFT...'});
       setTimeout(() => {
         window.location.href = 'https://mdvanes.github.io/mdworld-simon/scriptie/';
