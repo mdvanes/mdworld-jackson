@@ -77,51 +77,57 @@ updateModel msg model =
            { model | name = name }
 ```
 
-Which says in the case of the message is “Name”, create a new “model” where model.name is set to the supplied name.
+Which means that in the case the message is “Name”, create a new “model” where model.name is set to the supplied name.
 
-An advantage is that over the course of use of the application a list of states is recorded, which enables time travel debugging [add a link to a GIF or something].
+An advantage is that over the course of use of the application a list of states is recorded, which enables time travel debugging 
+**[add a link to a GIF or something].**
 
-What might look familiar: if you have used Redux [site]. Redux is partially inspired by Elm [https://redux.js.org/introduction/prior-art] and you might recognize the [dispatch, action] cycle in the way Elm updates the model. In that respect, it is is also similar to state stores in RxJS [http://reactivex.io/rxjs/manual/tutorial.html#state-stores]
+This might look familiar if you have used [Redux](https://redux.js.org/). Redux is partially [inspired by Elm](https://redux.js.org/introduction/prior-art#elm) and you might recognize the [dispatch, action] cycle in the way Elm updates the model. In that respect, it is is also similar to [state stores in RxJS](http://reactivex.io/rxjs/manual/tutorial.html#state-stores):
 
-var increase = Rx.Observable.fromEvent(increaseButton, 'click')
-    // Again we map to a function the will increase the count
+```javascript
+const increase = Rx.Observable.fromEvent(increaseButton, 'click')
+    // We map to a function that will increase the count
     .map(() => state => Object.assign({}, state, {count: state.count + 1}));
+```
 
 Here you can see that a new state object is created, and only the count property is updated.
 
-Another familiar aspect of Elm is the use of Virtual DOM [http://elmprogramming.com/virtual-dom.html]. Instead of manipulating the DOM directly, an in memory representation of the UI (the virtual DOM) is modified, and that is synchronized to the real DOM. This improves performance dramatically and is one of [the selling points of React](https://reactjs.org/docs/faq-internals.html).
+Another familiar aspect of Elm is the use of [Virtual DOM](http://elmprogramming.com/virtual-dom.html). Instead of manipulating the DOM directly, an in-memory representation of the UI (the virtual DOM) is modified, and that is synchronized to the real DOM. This improves performance dramatically and is one of [the selling points of React](https://reactjs.org/docs/faq-internals.html).
 
-With all of this in mind, we set out to rewrite [our company site](www.codestar.nl) in Elm. The current implementation of the site is outdated and has all content stored locally. We want to migrate to a [JAMstack](https://jamstack.org/) approach, with the content stored in cloud services (Youtube, Twitter, and photos in https://cloudinary.com/) and to pull the data in through the respective APIs with Elm. The idea is that Elm should be more accessible to our Scala devs, while still providing a mature environment for our front-end devs so maintenance can be done by either.
+With all of this in mind, we set out to rewrite [our company site](https://www.codestar.nl) in Elm. The current implementation of the site is outdated and has all content stored locally. We want to migrate to a [JAMstack](https://jamstack.org/) approach, with the content stored in cloud services (Youtube, Twitter, and photos in [Cloudinary](https://cloudinary.com/)) and to pull the data in through the respective APIs with Elm. The idea is that Elm should be more accessible to our Scala devs, while still providing a mature environment for our front-end devs so maintenance can be done by either.
 
 Of course, all devs try to dive right in and soon are discouraged when this approach does not seem to work here. So maybe let's read the Elm docs. There actually are quite a bit of docs. Maybe first finish the tutorials. Actually now I am even more confused…. 
 
 # Toolchain/workflow
-No matter if it is Elm, Polymer [https://mdworld.nl/polymer-2-and-type-script], or any other New Solution that does not use ES6 modules, it means you can’t use the tools you are probably used to as a front-end developer, like ESLint. You are now at the mercy of the maturity of the ecosystem of the New Solution. Fortunately, It looks like Elm has a very active community and covers [Webpack integration](https://www.elm-tutorial.org/en/04-starting/03-webpack-1.html), for instance, right in the documentation.
+No matter if it is Elm, [Polymer](https://mdworld.nl/polymer-2-and-type-script), or any other New Solution that does not use ES6 modules, it means you can’t use the tools you are probably used to as a front-end developer, like ESLint. You are now at the mercy of the maturity of the ecosystem of the New Solution. Fortunately, It looks like Elm has a very active community and covers [Webpack integration](https://www.elm-tutorial.org/en/04-starting/03-webpack-1.html), for instance, right in the documentation.
 
 ## Elm-reactor and external CSS
 When starting out with Elm, you usually use elm-reactor to compile and serve Elm files. This offers a web interface that lets you navigate Elm files and when opening them serves them as HTML. Quite soon, you will find out that this presents a problem when you want to add external global resources, like CSS. 
 The Elm app served by elm-reactor is compiled to JavaScript and wrapped in an HTML. But you can’t specify what that HTML should look like, so you can’t add e.g.
+```html
 <link rel="stylesheet" href="style.css" />
+```
 
 You can (and eventually will) create your own HTML and build with e.g. webpack, but there is an intermediate solution if you want to get to know Elm better first, while keeping the benefits of elm-reactor, such as live reloading and the time travel debugger. It is [not very well documented](https://github.com/elm-lang/elm-reactor/issues/199#issuecomment-279250207), but you can create an HTML file that directly loads an Elm file. Elm-reactor will automatically compile and live update it. The HTML would contain:
 
-    <script type="text/javascript" src="/_compile/app/src/Main.elm"></script>
-    <script type="text/javascript">
-        runElmProgram();
-    </script>
-
- 
+```javascript
+<script type="text/javascript" 
+    src="/_compile/app/src/Main.elm"></script>
+<script type="text/javascript">
+    runElmProgram();
+</script>
+```
 
 We did notice that local custom fonts that were added while serving this way were not loaded. Custom fonts from a CDN will probably work.
 
 ## Webpack
-First I set up a Webpack config conform this guide https://www.elm-tutorial.org/en/04-starting/04-webpack-2.html. Before, I loaded an image in my Elm code, but now this image gives a 404 when I use the webpack-dev-server. It is also not copied to /dist when building. Webpack does not seem to resolve the image as an asset, which is a [known issue](  https://github.com/elm-community/elm-webpack-loader/issues/54).
+First I set up a Webpack config conform [this guide](https://www.elm-tutorial.org/en/04-starting/04-webpack-2.html). Before, I loaded an image in my Elm code, but now this image gives a 404 when I use the webpack-dev-server. It is also not copied to /dist when building. Webpack does not seem to resolve the image as an asset, which is a [known issue](https://github.com/elm-community/elm-webpack-loader/issues/54).
 There are workarounds, like setting the image as a CSS background and have the image dependency resolved by the css-loader, but that does [not conform to a11y guidelines](https://mdworld.nl/polymer-2-and-type-script) for informative images.
 
 The suggested solution is to use [elm-assets-loader](https://github.com/NoRedInk/elm-assets-loader). Additional to the instructions:
-I had to add ../ as a prefix to the image path
-It was helpful to run webpack instead of webpack-dev-server, it gave more informative errors
-I had to remove this line from the webpack config: `noParse: /\.elm$/,` because failed on an SVG import without a compile error, but with a runtime error: "Uncaught ReferenceError: require is not defined"
+* I had to add ../ as a prefix to the image path
+* It was helpful to run webpack instead of webpack-dev-server, it gave more informative errors
+* I had to remove this line from the webpack config: `noParse: /\.elm$/,` because failed on an SVG import without a compile error, but with a runtime error: "Uncaught ReferenceError: require is not defined"
 
 This last issue is because it [is suggested in elm-webpack-loader](https://github.com/elm-community/elm-webpack-loader#noparse) to set `noParse: /\.elm$/,`
 
