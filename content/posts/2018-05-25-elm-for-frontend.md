@@ -137,10 +137,14 @@ The cause of the error and the workaround to set `noParse: /^((?!Stylesheet).)*\
 # Getting the debugger back
 When using Webpack, you don't use elm-reactor so you don’t have the time travel debugger. This seems obvious: there is no Elm code anymore, it has been compiled to JS. It is very difficult to find documentation that mentions this. However, when using [elm-webpack-starter](https://github.com/elm-community/elm-webpack-starter) it actually runs with the debugger!
 
-It seems this is actually an option for the elm-webpack-loader in the webpack.config.js
-First we used this:
+It seems this is actually an option for the elm-webpack-loader in the webpack.config.js. First we used this:
+
+```
 'elm-webpack-loader?verbose=true&warn=true'
+````
+
 Which is equivalent to:
+```json
 {
    loader: 'elm-webpack-loader',
    options: {
@@ -148,8 +152,11 @@ Which is equivalent to:
        warn: true
    }
 }
+```
 
 And here the option "debug" can be added:
+
+```json
 {
    loader: 'elm-webpack-loader',
    options: {
@@ -158,36 +165,39 @@ And here the option "debug" can be added:
        debug: true
    }
 }
-I had looked at the [elm-webpack-loader readme]( https://github.com/elm-community/elm-webpack-loader), but I searched for “debug” in the readme, and there is actually only a reference to all the options [in the source]( https://github.com/rtfeldman/node-elm-compiler/blob/3fde73d/index.js#L12-L23).
+```
+
+I had trouble finding this option, because I had looked at the [elm-webpack-loader readme]( https://github.com/elm-community/elm-webpack-loader), but I searched for “debug” in the readme, and there is actually only a reference to all the options [in the source]( https://github.com/rtfeldman/node-elm-compiler/blob/3fde73d/index.js#L12-L23).
 
 
 # Unit tests
 We set up unit tests (see test/Assets.elm) and modified the npm tasks such that:
-Postinstall runs elm package install for root and also for tests/
-`npm run build` first runs `npm test` and then starts Webpack
-`npm test` runs format-validate and elm-test
-Add a new task `npm format-validate` validates app/src and tests/*.elm (as a quick way of excluding tests/elm-stuff)
+* Postinstall runs elm package install for / and also for /tests/
+* The new task `npm format-validate` validates /app/src and /tests/*.elm (as a quick way of excluding /tests/elm-stuff)
+* `npm test` runs `format-validate` and `elm-test`
+* `npm run build` first runs `npm test` and then starts webpack-dev-server
 
-Speeding up the build on Travis
+# Speeding up the build on Travis
 After adding a unit test (i.e. elm-test) the build speed is taking over 45 minutes on Travis CI.
 One suggestion is to [cache the elm artifacts](https://8thlight.com/blog/rob-looby/2016/04/07/caching-elm-builds-on-travis-ci.html).
 
 Add this to travis.yml:
 
+```yml
 cache:
   directories:
     - elm-stuff/build-artifacts
     - tests/elm-stuff/build-artifacts
-
+```
 
 The first build after adding this should be still slow, because the build-artifacts will have to be cached, but the second build should be faster:
 
-* 23 (first build with cache on) 46 minutes 48 seconds
-* 24 5 minutes 53 seconds
+* build #23 (first build with cache on): 46 minutes 48 seconds
+* build #24: 5 minutes 53 seconds
 
 So it is worth the trouble!
 
-It would be possible to cache `elm-stuff` instead of `elm-stuff/build-artifacts`, but this would require to clear the cache when new Elm dependencies are added.
+It would be possible to cache `elm-stuff` instead of `elm-stuff/build-artifacts`, but this would require manually clearing the cache when new Elm dependencies are added.
 
 # Combining several components in one Elm app
 We started out with several proof of concepts, so we have a separate TwitterFeed app and DiceRoller app that need to be integrated into the site app.
@@ -199,44 +209,54 @@ The TwitterFeed has an initial Cmd. This must somehow be called by the initial C
 
 This is the init of the Model and Cmd of the main page app. The TwitterFeed model has been added, but the initial Cmd is still "none":
 
+```elm
 init : ( Model, Cmd Msg )
 init =
    ( Model "Elm" Material.model initialDiceRoller TwitterFeed.State.initialModel, Cmd.none )
+````
 
 I want a custom init cmd to be called:
 
+```elm
 init : ( Model, Cmd Msg )
 init =
-   --( Model "Elm" Material.model initialDiceRoller, Cmd.none )
    ( Model "Elm" Material.model initialDiceRoller TwitterFeed.State.initialModel, initCmd )
+```
 
 On init, I want to call a service to get Twitter messages. In the standalone TwitterFeed app this looks like this:
 
+```elm
 initTwitterFeedCmd : Cmd TwitterFeedMsg
 initTwitterFeedCmd =
    Task.attempt NewTweets fetchTweets
+```
 
 It is not possible to create an initCmd in the main page app that calls initTwitterFeedCmd directly:
 
+```elm
 initCmd : Cmd Msg
 initCmd =
    initTwitterFeedCmd
+```
 
 Because initTwitterFeedCmd is of the type Cmd TwitterFeedMsg. However, after adding TwitterFeedMsg to the union type for Msg, i.e.:
 
+```elm
 type Msg
    = Name String
    | Mdl (Material.Msg Msg)
    | MsgForDiceRoller DiceRollerMsg
    | MsgForTwitterFeed TwitterFeedMsg
+```
 
 Then it is possible to map from Cmd TwitterFeedMsg to Cmd Msg:
 
+```elm
 initCmd : Cmd Msg
 initCmd =
    initTwitterFeedCmd
        |> Cmd.map MsgForTwitterFeed
-
+```
 
 # Conclusion
 In the end we simply do not have a strong enough use case for Elm. There is too little state to manage and interaction between components. In this sense it would be a good fit for an advanced web app or component with UI controls or complex logic. 
