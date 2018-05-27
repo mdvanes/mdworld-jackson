@@ -1,9 +1,10 @@
-const path = require("path");
-const _ = require("lodash");
-const webpackLodashPlugin = require("lodash-webpack-plugin");
+const path = require('path');
+const _ = require('lodash');
+const webpackLodashPlugin = require('lodash-webpack-plugin');
 const generateCovers = require('procgen-cover');
 const crypto = require('crypto');
 const fs = require('fs');
+const retroPostsHash = require('./retro-posts-hash');
 
 let postNodes = [];
 
@@ -127,10 +128,15 @@ exports.setFieldsOnGraphQLNodeType = ({ type, boundActionCreators }) => {
   }
 };
 
-exports.onPostBootstrap = () => createCoverArt(postNodes.map(node => node.hash))
-  .then(result => {
-    console.log(`createCoverArt result: ${result && result.status}`)
-  });
+exports.onPostBootstrap = () => {
+  const hashes = postNodes.map(node => node.hash);
+  return retroPostsHash()
+    .then(retroHashes => [...hashes, ...retroHashes])
+    .then(allHashes => createCoverArt(allHashes))
+    .then(result => {
+      console.log(`createCoverArt result: ${result && result.status}`)
+    })
+};
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
   const { createPage } = boundActionCreators;
