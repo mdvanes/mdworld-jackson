@@ -1,184 +1,210 @@
 [
   {
     "title": "New Features",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/0081b41cba5c7631f44c1f672ba4ba6f73971e90.png",
     "date": "16-11-2014",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2014/11/16/new-features/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2014/11/16/new-features/",
+    "hash": "0081b41cba5c7631f44c1f672ba4ba6f73971e90"
   },
   {
     "title": "CSSDay 2013",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/6ce115c73631e66b99236a5025d7e989fd2cffd3.png",
     "date": "07-05-2014",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2014/05/07/cssday2013/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2014/05/07/cssday2013/",
+    "hash": "6ce115c73631e66b99236a5025d7e989fd2cffd3"
   },
   {
     "title": "New Site!",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/bb4d2d7e062e32b6acec037efa5c960165a65d9a.png",
     "date": "09-11-2013",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2013/11/09/new-site/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2013/11/09/new-site/",
+    "hash": "bb4d2d7e062e32b6acec037efa5c960165a65d9a"
   },
   {
     "title": "CDN, Relative URLs and local testing",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/202a74e1f1fab967736809ae51a5ea3f616be31c.png",
     "date": "13-05-2013",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2013/05/13/cdn-relative-urls-and-local-testing/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2013/05/13/cdn-relative-urls-and-local-testing/",
+    "hash": "202a74e1f1fab967736809ae51a5ea3f616be31c"
   },
   {
     "title": "Play and Sass",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/3fed15aded914ef25c596bcf8369ca71da516e6e.png",
     "date": "01-05-2013",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2013/05/01/play-and-sass/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2013/05/01/play-and-sass/",
+    "hash": "3fed15aded914ef25c596bcf8369ca71da516e6e"
   },
   {
     "title": "Fronteers 2012: CSS",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/65e564c518b089c880e8d0c700095b597275840a.png",
     "date": "09-04-2013",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2013/04/09/fronteers-2012-css/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2013/04/09/fronteers-2012-css/",
+    "hash": "65e564c518b089c880e8d0c700095b597275840a"
   },
   {
     "title": "Multiple jQuery versions",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/58192e2bd72bc16fee54e75d70b599e302d1bc7b.png",
     "date": "13-09-2012",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2012/09/13/multiple-jquery-versions/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2012/09/13/multiple-jquery-versions/",
+    "hash": "58192e2bd72bc16fee54e75d70b599e302d1bc7b"
   },
   {
     "title": "On Sass and Compass",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/e325c9cafb7a04b477c55084ff822349ebdaeb68.png",
     "date": "12-09-2012",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2012/09/12/on-sass-and-compass/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2012/09/12/on-sass-and-compass/",
+    "hash": "e325c9cafb7a04b477c55084ff822349ebdaeb68"
   },
   {
     "title": "Fronteers 2011: Experimental Features",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/4f682d6c827b744a1bd9e5a9f20d6f8bf6d11258.png",
     "date": "28-01-2012",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2012/01/28/fronteers-2011-experimental-features/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2012/01/28/fronteers-2011-experimental-features/",
+    "hash": "4f682d6c827b744a1bd9e5a9f20d6f8bf6d11258"
   },
   {
     "title": "Fronteers 2011: CSS",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/3d2af8111bfdc9722c298b9c91472e3f62726133.png",
     "date": "03-12-2011",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2011/12/03/fronteers-2011-css/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2011/12/03/fronteers-2011-css/",
+    "hash": "3d2af8111bfdc9722c298b9c91472e3f62726133"
   },
   {
     "title": "IE8 Switches To Compatibility View",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/ebfec15b744fc82fdd9594c6d66b4d588cf1b44c.png",
     "date": "16-07-2011",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2011/07/16/ie8-switches-to-compatibility-view/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2011/07/16/ie8-switches-to-compatibility-view/",
+    "hash": "ebfec15b744fc82fdd9594c6d66b4d588cf1b44c"
   },
   {
     "title": "Onchange Is Fired Twice In IE",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/1df02434ca0eed0b4356bb0ac724d7721e74f149.png",
     "date": "15-07-2011",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2011/07/15/onchange-is-fired-twice-in-ie/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2011/07/15/onchange-is-fired-twice-in-ie/",
+    "hash": "1df02434ca0eed0b4356bb0ac724d7721e74f149"
   },
   {
     "title": "Fronteers 2010: CSS",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/0b860010c54b6ca2abc082ba84bb8e50b1a60b30.png",
     "date": "21-01-2011",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2011/01/21/fronteers-2010-css/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2011/01/21/fronteers-2010-css/",
+    "hash": "0b860010c54b6ca2abc082ba84bb8e50b1a60b30"
   },
   {
     "title": "Fronteers 2010: JavaScript",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/3cb935c3c7020c75b1f3c553c376208b99e04a2a.png",
     "date": "18-11-2010",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2010/11/18/fronteers-2010-javascript/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2010/11/18/fronteers-2010-javascript/",
+    "hash": "3cb935c3c7020c75b1f3c553c376208b99e04a2a"
   },
   {
     "title": "Fronteers 2010: HTML",
-    "cover": "https://picsum.photos/800/600?image=3",
+    "cover": "/cover/a0647261d3ea3bd10be065ba500f0e2961d6c1b0.png",
     "date": "15-11-2010",
     "category": "webdevelopment",
-    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2010/11/15/fronteers-2010-html/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/webdevelopment/2010/11/15/fronteers-2010-html/",
+    "hash": "a0647261d3ea3bd10be065ba500f0e2961d6c1b0"
   },
   {
     "title": "Dop Ubuntu 14.04 freezes after login",
-    "cover": "https://picsum.photos/g/800/600?image=0",
+    "cover": "/cover/a8abadf3739141258a27bdc43154b0b4e1f6deec.png",
     "date": "02-10-2014",
     "category": "mypc",
-    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/10/02/dop-ubuntu-1404-freezes-after-login/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/10/02/dop-ubuntu-1404-freezes-after-login/",
+    "hash": "a8abadf3739141258a27bdc43154b0b4e1f6deec"
   },
   {
     "title": "Running WoW updater",
-    "cover": "https://picsum.photos/g/800/600?image=0",
+    "cover": "/cover/18672d0c77847d465d1b3cb5c9b5145d7883eefa.png",
     "date": "07-09-2014",
     "category": "mypc",
-    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/09/07/running-wow-updater/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/09/07/running-wow-updater/",
+    "hash": "18672d0c77847d465d1b3cb5c9b5145d7883eefa"
   },
   {
     "title": "Trusty Broek LTS",
-    "cover": "https://picsum.photos/g/800/600?image=0",
+    "cover": "/cover/ae52cf3847d27069f24c5b8390b099a5fb7c6d9d.png",
     "date": "17-08-2014",
     "category": "mypc",
-    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/08/17/trusty-broek-lts/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/08/17/trusty-broek-lts/",
+    "hash": "ae52cf3847d27069f24c5b8390b099a5fb7c6d9d"
   },
   {
     "title": "Dop monitors and multimedia keys",
-    "cover": "https://picsum.photos/g/800/600?image=0",
+    "cover": "/cover/3df4ef51d305f246cf8235a00aa98dbd24f8eb87.png",
     "date": "06-08-2014",
     "category": "mypc",
-    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/08/06/dop-monitors-and-multimedia-keys/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/08/06/dop-monitors-and-multimedia-keys/",
+    "hash": "3df4ef51d305f246cf8235a00aa98dbd24f8eb87"
   },
   {
     "title": "Bash script with multiple screen windows",
-    "cover": "https://picsum.photos/g/800/600?image=0",
+    "cover": "/cover/876e94bfda56836c42279f6b8705b693dc028724.png",
     "date": "02-10-2014",
     "category": "mypc",
-    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/07/19/bash-script-with-multiple-screen-windows/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/07/19/bash-script-with-multiple-screen-windows/",
+    "hash": "876e94bfda56836c42279f6b8705b693dc028724"
   },
   {
     "title": "Trusty dop",
-    "cover": "https://picsum.photos/g/800/600?image=0",
+    "cover": "/cover/99d9510a88125b9e1f6b82dc4cc12e1622398f5d.png",
     "date": "18-05-2014",
     "category": "mypc",
-    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/05/18/trusty-dop/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/05/18/trusty-dop/",
+    "hash": "99d9510a88125b9e1f6b82dc4cc12e1622398f5d"
   },
   {
     "title": "Owncloud server and PHP not working",
-    "cover": "https://picsum.photos/g/800/600?image=0",
+    "cover": "/cover/066e42a04a3122ff19c79a2ae44dc63d51b32dd8.png",
     "date": "02-04-2014",
     "category": "mypc",
-    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/04/02/owncloud-server-and-php-not-working/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/04/02/owncloud-server-and-php-not-working/",
+    "hash": "066e42a04a3122ff19c79a2ae44dc63d51b32dd8"
   },
   {
     "title": "Installing IGP driver on Ubuntu 13.10",
-    "cover": "https://picsum.photos/g/800/600?image=0",
+    "cover": "/cover/be908b7003d9af50e433cf540c6e2ea6a52b969e.png",
     "date": "07-03-2014",
     "category": "mypc",
-    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/03/07/installing-igp-driver-on-ubuntu-1310/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/03/07/installing-igp-driver-on-ubuntu-1310/",
+    "hash": "be908b7003d9af50e433cf540c6e2ea6a52b969e"
   },
   {
     "title": "Problems updating Broek",
-    "cover": "https://picsum.photos/g/800/600?image=0",
+    "cover": "/cover/fcfc6c4018f70a95ec12292c9f45556c2b0ed942.png",
     "date": "03-02-2014",
     "category": "mypc",
-    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/02/03/problems-updating-broek/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2014/02/03/problems-updating-broek/",
+    "hash": "fcfc6c4018f70a95ec12292c9f45556c2b0ed942"
   },
   {
     "title": "Running WoW 5.4",
-    "cover": "https://picsum.photos/g/800/600?image=0",
+    "cover": "/cover/72b3542f24eba954115691b26150e68621763ee7.png",
     "date": "28-12-2013",
     "category": "mypc",
-    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2013/12/28/wow-cata/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2013/12/28/wow-cata/",
+    "hash": "72b3542f24eba954115691b26150e68621763ee7"
   },
   {
     "title": "Saucy dop",
-    "cover": "https://picsum.photos/g/800/600?image=0",
+    "cover": "/cover/aa478ba53921250a7b8d01cfb21c9fa5a449d608.png",
     "date": "24-11-2013",
     "category": "mypc",
-    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2013/11/24/saucy-dop/"
+    "path": "https://mdvanes.github.io/mdworld-ingram/mypc/2013/11/24/saucy-dop/",
+    "hash": "aa478ba53921250a7b8d01cfb21c9fa5a449d608"
   }
 ]
