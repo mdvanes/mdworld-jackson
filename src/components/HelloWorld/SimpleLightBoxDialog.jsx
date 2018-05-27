@@ -7,7 +7,7 @@ export default class SimpleLightBoxDialog extends PureComponent {
     this.el = document.createElement('div');
   }
 
-  componentDidMount() {
+  componentWillMount() {
     // Normally the Portal root would be declared outside the class, but the way Gatsby initializes the DOM with an html.jsx makes this not possible
     const modalRoot = document.getElementById('modal-root');
     modalRoot.appendChild(this.el);
