@@ -44,6 +44,7 @@ export default class HTML extends React.Component {
             dangerouslySetInnerHTML={{ __html: this.props.body }}
           />
           {this.props.postBodyComponents}
+          <div id="modal-root" />
         </body>
       </html>
     );

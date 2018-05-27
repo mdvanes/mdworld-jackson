@@ -28,10 +28,9 @@ time, Gatsby 1.0 was released and I really subscribe to the [JAMstack](https://j
 With the new setup, I can work with a modern and familiar stack e.g. Babel, React, TravisCI. I still believe in static site 
 generation for blogs, and just like in Jekyll, adding a post in Gatsby is just a matter of adding a Markdown file with 
 some frontmatter. But an improvement is that you can also drop React components in the pages dir that will be automatically
-picked up as pages. And it is even possible to add a React component inside a Markdown post. Try the button below and 
+picked up as pages. And it is even possible to add a React component inside a Markdown post. Try clicking the screenshots
+below for a simple lightbox feature and 
 see the source for [this post](https://raw.githubusercontent.com/mdvanes/mdworld-jackson/master/content/posts/2018-05-10-site-updated.md). 
-
-<hello-world></hello-world>
 
 For more information about the current stack, see the [about page](../about).
 
@@ -48,11 +47,11 @@ and [here (2010-2013)](https://mdvanes.github.io/mdworld-simon).
 
 **Theme 2013-2018**
  
-![Theme 2013-2018](theme-ingram.jpg)
+<simple-light-box img-path="/lightbox/theme-ingram.jpg" img-title="Theme 2013-2018"></simple-light-box>
 
 **Theme 2010-2013**
  
-![Theme 2010-2013](theme-simon.jpg)
+<simple-light-box img-path="/lightbox/theme-simon.jpg" img-title="Theme 2010-2013"></simple-light-box>
 
 
 **Theme until 2010**
