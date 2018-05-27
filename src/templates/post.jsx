@@ -14,10 +14,16 @@ import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
 import "./post.scss";
 import HelloWorld from "../components/HelloWorld/HelloWorld";
+import SimpleLightBox from "../components/HelloWorld/SimpleLightBox";
+import SimpleLightBoxDialog from "../components/HelloWorld/SimpleLightBoxDialog";
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
-  components: { "hello-world": HelloWorld },
+  components: {
+    "hello-world": HelloWorld,
+    "simple-light-box": SimpleLightBox,
+    "simple-light-box-dialog": SimpleLightBoxDialog
+  },
 }).Compiler;
 
 export default class PostTemplate extends React.Component {
