@@ -26,9 +26,12 @@ export default class SimpleLightBoxDialog extends PureComponent {
   }
 
   render() {
-    return ReactDOM.createPortal(
-      this.props.children,
-      this.el,
-    );
+    if(typeof document !== 'undefined') {
+      return ReactDOM.createPortal(
+        this.props.children,
+        this.el,
+      );
+    }
+    return null;
   }
 }
