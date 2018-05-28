@@ -4,7 +4,9 @@ import ReactDOM from 'react-dom';
 export default class SimpleLightBoxDialog extends PureComponent {
   constructor(props) {
     super(props);
-    this.el = document.createElement('div');
+    if(typeof document !== 'undefined') {
+      this.el = document.createElement('div');
+    }
   }
 
   componentWillMount() {
