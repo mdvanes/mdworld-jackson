@@ -14,8 +14,8 @@ import config from "../../data/SiteConfig";
 import "./b16-tomorrow-dark.css";
 import "./post.scss";
 import HelloWorld from "../components/HelloWorld/HelloWorld";
-import SimpleLightBox from "../components/HelloWorld/SimpleLightBox";
-import SimpleLightBoxDialog from "../components/HelloWorld/SimpleLightBoxDialog";
+import SimpleLightBox from "../components/SimpleLightBox/SimpleLightBox";
+import SimpleLightBoxDialog from "../components/SimpleLightBox/SimpleLightBoxDialog";
 
 const renderAst = new RehypeReact({
   createElement: React.createElement,
