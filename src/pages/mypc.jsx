@@ -4,7 +4,7 @@ import PostListing from "../components/PostListing/PostListing";
 import SEO from "../components/SEO/SEO";
 import config from "../../data/SiteConfig";
 
-// TODO do not duplicate categoryname in graphql: https://www.gatsbyjs.org/docs/querying-with-graphql/
+// Categoryname is defined twice, but see Note in pages/index.jsx
 const category = 'mypc';
 
 class MyPC extends React.Component {
