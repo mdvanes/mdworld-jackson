@@ -12,9 +12,9 @@ Elm for front-end developers - how we dove into Elm to rebuild part of our site.
 # Why Elm?
 The benefits of [Elm](http://elm-lang.org/) (no runtime errors, typing) is what makes it accessible to our back-end developers. They are used to the functional style of Scala and in general to a workflow with a compiler. 
 
-On the other hand, this workflow is also what makes the learning curve enormously steep to front-end developers; if you are used to an highly iterative workflow, working with a compiler is very different. Because of (unpredictable) runtime errors and intransparent state in conventional front-end projects, front-end developers have an iterative workflow: write a small bit of code, see what the result is in the browser. 
+On the other hand, this workflow is also what makes the learning curve enormously steep to front-end developers; if you are used to the front-end workflow, working with a compiler is very different. Back-end (e.g. Scala) developers iterate by writing code and seeing if it compiles. Because of (unpredictable) runtime errors and intransparent state in conventional front-end projects, front-end developers have another kind of iterative workflow: write a small bit of code, see what the result is in the browser. And this means leaving the IDE, navigating your app and opening your browser devtools.
 
-The popularisation of live reloaders and the emphasis on a fast build chain (linters, precompilers) originates from this workflow. Although ultimately developing in a strongly typed and compiled language will have less errors it does require a different programming style.
+The popularisation of live reloaders and the emphasis on a fast build chain (linters, precompilers) originates from this workflow. Although ultimately developing in a strongly typed and compiled language will have less errors, it does require a different programming style.
 
 Besides adapting to this workflow, the functionally pure coding style is infamously difficult to grasp for the uninitiated (See [Functional Programming Is Hard,
 That's Why It's Good](http://dave.fayr.am/posts/2011-08-19-lets-go-shopping.html), also just Google “functional programming is difficult”). You think you are comfortable with functional concepts (e.g. immutable state, pure functions, higher order functions, currying) and operators (e.g. map, filter, reduce) in JavaScript? This will be of very little help in Elm, because it is not possible to combine functional style with an OO style (or to fall back to OO when you are completely lost).
@@ -26,14 +26,14 @@ Objects have no meaning in Elm, Elm is a true functional language, like Haskell 
 Take for instance immutability. In JavaScript (without libraries) the meaning of immutability is limited to the const keyword, which prevents you from reassigning to declared variables.
 
 ```javascript
-const x = {val: ‘foo’};
+const x = {val: 'foo'};
 x = {}; // prevented
 ```
 
-It is still possible to change the contents of a variable however, without reassignment.
+It is still possible to change the contents of a constant however, with property reassignment.
 
 ```javascript
-x.val = ‘bar’ // value of x is now {val: ‘bar’}
+x.val = 'bar' // value of x is now {val: 'bar'}
 ```
 
 [Immutability in Elm](http://elmprogramming.com/immutability.html) is much more invasive: there are no variables, only constants. Assignment can be written inline or take a chained style for clarity:
@@ -79,8 +79,7 @@ updateModel msg model =
 
 Which means that in the case the message is “Name”, create a new “model” where model.name is set to the supplied name.
 
-An advantage is that over the course of use of the application a list of states is recorded, which enables time travel debugging 
-**[add a link to a GIF or something].**
+An advantage is that over the course of use of the application a list of states is recorded, which enables time travel debugging (like in [this GIF](https://github.com/reduxjs/redux-devtools)).
 
 This might look familiar if you have used [Redux](https://redux.js.org/). Redux is partially [inspired by Elm](https://redux.js.org/introduction/prior-art#elm) and you might recognize the [dispatch, action] cycle in the way Elm updates the model. In that respect, it is is also similar to [state stores in RxJS](http://reactivex.io/rxjs/manual/tutorial.html#state-stores):
 
@@ -99,7 +98,7 @@ With all of this in mind, we set out to rewrite [our company site](https://www.c
 Of course, all devs try to dive right in and soon are discouraged when this approach does not seem to work here. So maybe let's read the Elm docs. There actually are quite a bit of docs. Maybe first finish the tutorials. Actually now I am even more confused…. 
 
 # Toolchain/workflow
-No matter if it is Elm, [Polymer](https://mdworld.nl/polymer-2-and-type-script), or any other New Solution that does not use ES6 modules, it means you can’t use the tools you are probably used to as a front-end developer, like ESLint. You are now at the mercy of the maturity of the ecosystem of the New Solution. Fortunately, It looks like Elm has a very active community and covers [Webpack integration](https://www.elm-tutorial.org/en/04-starting/03-webpack-1.html), for instance, right in the documentation.
+No matter if it is Elm, [Polymer](https://mdworld.nl/polymer-2-and-type-script), or any other New Solution that does not use ES6 modules, it means you can’t use the tools you are probably used to as a front-end developer, like ESLint. You are now at the mercy of the maturity of the ecosystem of the New Solution. Fortunately, it looks like Elm has a very active community and covers [Webpack integration](https://www.elm-tutorial.org/en/04-starting/03-webpack-1.html), for instance, right in the documentation.
 
 ## Elm-reactor and external CSS
 When starting out with Elm, you usually use elm-reactor to compile and serve Elm files. This offers a web interface that lets you navigate Elm files and when opening them serves them as HTML. Quite soon, you will find out that this presents a problem when you want to add external global resources, like CSS. 
@@ -121,15 +120,15 @@ You can (and eventually will) create your own HTML and build with e.g. webpack, 
 We did notice that local custom fonts that were added while serving this way were not loaded. Custom fonts from a CDN will probably work.
 
 ## Webpack
-First I set up a Webpack config conform [this guide](https://www.elm-tutorial.org/en/04-starting/04-webpack-2.html). Before, I loaded an image in my Elm code, but now this image gives a 404 when I use the webpack-dev-server. It is also not copied to /dist when building. Webpack does not seem to resolve the image as an asset, which is a [known issue](https://github.com/elm-community/elm-webpack-loader/issues/54).
+First I set up a Webpack config conforming to [this guide](https://www.elm-tutorial.org/en/04-starting/04-webpack-2.html). Before, I loaded an image in my Elm code, but now this image gives a 404 when I use the webpack-dev-server. It is also not copied to /dist when building. Webpack does not seem to resolve the image as an asset, which is a [known issue](https://github.com/elm-community/elm-webpack-loader/issues/54).
 There are workarounds, like setting the image as a CSS background and have the image dependency resolved by the css-loader, but that does [not conform to a11y guidelines](https://mdworld.nl/polymer-2-and-type-script) for informative images.
 
 The suggested solution is to use [elm-assets-loader](https://github.com/NoRedInk/elm-assets-loader). Additional to the instructions:
 * I had to add ../ as a prefix to the image path
 * It was helpful to run webpack instead of webpack-dev-server, it gave more informative errors
-* I had to remove this line from the webpack config: `noParse: /\.elm$/,` because failed on an SVG import without a compile error, but with a runtime error: "Uncaught ReferenceError: require is not defined"
+* I had to remove this line from the webpack config: `noParse: /\.elm$/,` because it failed on an SVG import without a compile error, but with a runtime error: "Uncaught ReferenceError: require is not defined"
 
-This last issue is because it [is suggested in elm-webpack-loader](https://github.com/elm-community/elm-webpack-loader#noparse) to set `noParse: /\.elm$/,`
+This last issue arose because it [is suggested in elm-webpack-loader](https://github.com/elm-community/elm-webpack-loader#noparse) to set `noParse: /\.elm$/,` conflicting with elm-css-webpack-loader, which I added later.
 
 The cause of the error and the workaround to set `noParse: /^((?!Stylesheet).)*\.elm.*$/,` instead, is explained in [elm-css-webpack-loader](https://github.com/tcoopman/elm-css-webpack-loader).
 
@@ -141,7 +140,7 @@ It seems this is actually an option for the elm-webpack-loader in the webpack.co
 
 ```
 'elm-webpack-loader?verbose=true&warn=true'
-````
+```
 
 Which is equivalent to:
 ```json
@@ -197,13 +196,11 @@ The first build after adding this should be still slow, because the build-artifa
 
 So it is worth the trouble!
 
-It would be possible to cache `elm-stuff` instead of `elm-stuff/build-artifacts`, but this would require manually clearing the cache when new Elm dependencies are added.
+It would be possible to cache `elm-stuff` (where Elm dependencies are installed) instead of `elm-stuff/build-artifacts`, but this would require manually clearing the cache when new Elm dependencies are added.
 
 # Combining several components in one Elm app
-We started out with several proof of concepts, so we have a separate TwitterFeed app and DiceRoller app that need to be integrated into the site app.
+We started out with several proofs of concept, so we have a separate TwitterFeed app and DiceRoller app that need to be integrated into the site app.
 I’ve followed my refactoring attempt (for splitting up one huge Elm file) that I did in [my first Elm experiment](https://github.com/mdvanes/elmsta/tree/refactoring), which helped integrating the models and update functions.
-
-What I had not have to deal with in that refactoring was to set up an initCmd, so this still needed to be solved for this integration.
 
 The TwitterFeed has an initial Cmd. This must somehow be called by the initial Cmd of the main page app.
 
@@ -213,7 +210,7 @@ This is the init of the Model and Cmd of the main page app. The TwitterFeed mode
 init : ( Model, Cmd Msg )
 init =
    ( Model "Elm" Material.model initialDiceRoller TwitterFeed.State.initialModel, Cmd.none )
-````
+```
 
 I want a custom init cmd to be called:
 
