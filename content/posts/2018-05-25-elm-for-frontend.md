@@ -256,6 +256,7 @@ initCmd =
 ```
 
 # Conclusion
-In the end we simply do not have a strong enough use case for Elm. There is too little state to manage and interaction between components. In this sense it would be a good fit for an advanced web app or component with UI controls or complex logic. 
+In the end we simply do not have a strong enough use case for Elm. There is too little state to manage and interaction between components. The TwitterFeed component does have state for instance, but it is so straight forward that Elm offers no advantage over JavaScript alternatives like RxJS state stores 
+or Redux. In this sense Elm would be a good fit for an advanced web app or component with UI controls or complex logic. 
 
 Also the steep learning curve for most developers remains, and although this was anticipated for front-end developers it proves more challenging to Scala devs than we first thought.
