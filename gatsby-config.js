@@ -122,7 +122,7 @@ module.exports = {
     {
       resolve: "gatsby-plugin-offline",
       options: {
-        navigateFallbackWhitelist: [/(?=^.*([^.]{5}|.html)$)(?=^(?!https:\/\/mdworld\.nl\/mdworld-ingram\/).*$)(?=^(?!https:\/\/mdworld\.nl\/mdworld-simon\/).*$)/]
+        navigateFallbackWhitelist: [/(?=^.*([^.]{5}|.html)$)(?=^(?!https:\/\/mdworld\.nl\/mdworld-ingram).*$)(?=^(?!https:\/\/mdworld\.nl\/mdworld-simon).*$)/]
       }
     },
     {
