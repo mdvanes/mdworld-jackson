@@ -46,9 +46,10 @@ function addSiblingNodesForFiltered(createNodeField, filteredPostNodes) {
 
 function addSiblingNodes(createNodeField) {
   postNodes.sort(
-    ({ fields: { date: date1 } }, { fields: { date: date2 } }) =>
+    ({ fields: { sortDate: date1 } }, { fields: { sortDate: date2 } }) =>
       date1 - date2
   );
+  // console.log('Debug', postNodes.map(n => `${n.frontmatter.title} ${n.frontmatter.date} ${n.fields.sortDate}`));
 
   addSiblingNodesForFiltered(createNodeField, postNodes.filter(n => n.frontmatter.category === 'webdevelopment'));
   addSiblingNodesForFiltered(createNodeField, postNodes.filter(n => n.frontmatter.category === 'mypc'));
