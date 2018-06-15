@@ -63,3 +63,5 @@ bundle-stats.json
 .vscode
 
 static/cover/*.png
+static/cover/*.jpg
+static/cover/*.webp

@@ -98,7 +98,7 @@ function addHash(node) {
   }));
   const hash = shasum.digest('hex');
   const newNode = node;
-  newNode.frontmatter.cover = `/cover/${hash}.png`;
+  newNode.frontmatter.cover = `/cover/${hash}.jpg`;
   newNode.hash = hash;
   return newNode;
 }
@@ -108,11 +108,18 @@ function createCoverArt(hashArr) {
   let result = '';
   const coverPath = 'static/cover';
   const filteredHashArr = hashArr.filter(hash => {
-    const hashCoverPath = `${coverPath}/${hash}.png`;
+    const hashCoverPath = `${coverPath}/${hash}.jpg`;
     return !fs.existsSync(hashCoverPath);
   });
   if(filteredHashArr && filteredHashArr.length > 0) {
-     result = generateCovers(coverPath, true, true, filteredHashArr);
+     result = generateCovers(coverPath, {
+         keepOpen: true,
+         headless: true,
+         formats: [
+             {type: 'jpg', quality: 70},
+             {type: 'webp', quality: 70}
+         ]
+     }, filteredHashArr);
   } else {
     result = new Promise(resolve => resolve({status: 'All covers already exist, no covers generated'}));
   }
