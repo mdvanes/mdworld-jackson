@@ -24,7 +24,7 @@ export default class CategoryTemplate extends React.Component {
   }
 }
 
-/* eslint no-undef: "off"*/
+/* eslint no-undef: "off" */
 export const pageQuery = graphql`
   query CategoryPage($category: String) {
     allMarkdownRemark(
@@ -44,6 +44,7 @@ export const pageQuery = graphql`
             title
             tags
             cover
+            webpCover
             date
           }
         }
