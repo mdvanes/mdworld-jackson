@@ -1,6 +1,24 @@
+/* Interferes with automatic scaling in Media component
 .post-preview-cover {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 50% 50%;
     padding: 0 !important;
+} */
+
+/* TODO only way to get more height on mobile is to use image that has different aspect ratio */
+
+/*
+It is advised to add custom aspect ratios like this:
+
+@import "~react-md/src/scss/react-md";
+.md-media--611-450 {
+    @include react-md-media-aspect-ratio(450, 611);
+}
+
+and set <Media aspectRatio="611-450"> in PostPreview.jsx
+but does not work.
+ */
+.md-media--mdworld-cover {
+    padding-bottom: percentage(0.25);
 }
