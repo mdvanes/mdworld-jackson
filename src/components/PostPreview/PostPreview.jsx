@@ -13,11 +13,11 @@ import "./PostPreview.scss";
 class PostPreview extends Component {
 
   static getCoverPaths(postInfo) {
-    const cover = postInfo.cover.startsWith("/")
+    const cover = postInfo.cover.startsWith('/')
       // eslint-disable-next-line no-undef
       ? __PATH_PREFIX__ + postInfo.cover
       : postInfo.cover;
-    const webpCover = postInfo.webpCover.startsWith("/")
+    const webpCover = postInfo.webpCover.startsWith('/')
       // eslint-disable-next-line no-undef
       ? __PATH_PREFIX__ + postInfo.webpCover
       : postInfo.webpCover;
