@@ -99,6 +99,7 @@ function addHash(node) {
   const hash = shasum.digest('hex');
   const newNode = node;
   newNode.frontmatter.cover = `/cover/${hash}.jpg`;
+  newNode.frontmatter.webpCover = `/cover/${hash}.webp`;
   newNode.hash = hash;
   return newNode;
 }

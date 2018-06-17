@@ -12,6 +12,7 @@ class PostListing extends React.Component {
         tags: postEdge.node.frontmatter.tags,
         category: postEdge.node.frontmatter.category,
         cover: postEdge.node.frontmatter.cover,
+        webpCover: postEdge.node.frontmatter.webpCover,
         title: postEdge.node.frontmatter.title,
         date: postEdge.node.frontmatter.date,
         excerpt: postEdge.node.excerpt,

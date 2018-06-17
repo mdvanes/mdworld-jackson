@@ -14,14 +14,17 @@ class PostPreview extends Component {
 
   static getCoverPaths(postInfo) {
     const cover = postInfo.cover.startsWith("/")
+      // eslint-disable-next-line no-undef
       ? __PATH_PREFIX__ + postInfo.cover
       : postInfo.cover;
-    /* TODO do webpCover in gatsby-node.js for performance? */
-    const webpCover = `${cover.split('.').slice(0,-1).join('.')}.webp 1222w`;
+    const webpCover = postInfo.webpCover.startsWith("/")
+      // eslint-disable-next-line no-undef
+      ? __PATH_PREFIX__ + postInfo.webpCover
+      : postInfo.webpCover;
     return { cover, webpCover };
   }
 
-  static getMediaOverlay(postInfo) {
+  static renderMediaOverlay(postInfo) {
     return (
       <MediaOverlay>
         <CardTitle title={postInfo.title}>
@@ -30,6 +33,19 @@ class PostPreview extends Component {
           </Button>
         </CardTitle>
       </MediaOverlay>);
+  }
+
+  static renderMedia(postInfo) {
+    const { cover, webpCover } = PostPreview.getCoverPaths(postInfo);
+    return (
+      <Media aspectRatio="mdworld-cover">
+        {/* TODO extra breakpoint at 839-840 for small screens and offer smaller files? */}
+        <picture>
+          <source type="image/webp" srcSet={`${webpCover} 1222w`} />
+          <img alt="cover generated from hash" src={cover} />
+        </picture>
+        {PostPreview.renderMediaOverlay(postInfo)}
+      </Media>);
   }
 
   constructor(props) {
@@ -60,19 +76,10 @@ class PostPreview extends Component {
     const { postInfo } = this.props;
     const { mobile } = this.state;
     const expand = mobile;
-    /* eslint no-undef: "off" */
-    const { cover, webpCover } = PostPreview.getCoverPaths(postInfo);
     return (
       <Card key={postInfo.path} raise className="md-grid md-cell md-cell--12">
         <GatsbyLink style={{ textDecoration: "none" }} to={postInfo.path}>
-          <Media aspectRatio="mdworld-cover">
-            {/* TODO extra breakpoint at 839-840 for small screens and offer smaller files? */}
-            <picture>
-              <source type="image/webp" srcSet={webpCover} />
-              <img alt="cover generated from hash" src={cover} />
-            </picture>
-            {PostPreview.getMediaOverlay(postInfo)}
-          </Media>
+          {PostPreview.renderMedia(postInfo)}
         </GatsbyLink>
         <CardTitle
           expander={expand}
