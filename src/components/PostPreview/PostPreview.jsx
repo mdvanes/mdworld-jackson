@@ -11,6 +11,27 @@ import PostTags from "../PostTags/PostTags";
 import "./PostPreview.scss";
 
 class PostPreview extends Component {
+
+  static getCoverPaths(postInfo) {
+    const cover = postInfo.cover.startsWith("/")
+      ? __PATH_PREFIX__ + postInfo.cover
+      : postInfo.cover;
+    /* TODO do webpCover in gatsby-node.js for performance? */
+    const webpCover = `${cover.split('.').slice(0,-1).join('.')}.webp 1222w`;
+    return { cover, webpCover };
+  }
+
+  static getMediaOverlay(postInfo) {
+    return (
+      <MediaOverlay>
+        <CardTitle title={postInfo.title}>
+          <Button raised secondary className="md-cell--right">
+            Read
+          </Button>
+        </CardTitle>
+      </MediaOverlay>);
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -34,32 +55,23 @@ class PostPreview extends Component {
       this.setState({ mobile: true });
     }
   }
+
   render() {
     const { postInfo } = this.props;
     const { mobile } = this.state;
     const expand = mobile;
     /* eslint no-undef: "off" */
-    const cover = postInfo.cover.startsWith("/")
-      ? __PATH_PREFIX__ + postInfo.cover
-      : postInfo.cover;
-    const coverHeight = mobile ? 162 : 225;
+    const { cover, webpCover } = PostPreview.getCoverPaths(postInfo);
     return (
       <Card key={postInfo.path} raise className="md-grid md-cell md-cell--12">
         <GatsbyLink style={{ textDecoration: "none" }} to={postInfo.path}>
-          <Media
-            style={{
-              backgroundImage: `url(${cover})`,
-              height: `${coverHeight}px`
-            }}
-            className="post-preview-cover"
-          >
-            <MediaOverlay>
-              <CardTitle title={postInfo.title}>
-                <Button raised secondary className="md-cell--right">
-                  Read
-                </Button>
-              </CardTitle>
-            </MediaOverlay>
+          <Media aspectRatio="mdworld-cover">
+            {/* TODO extra breakpoint at 839-840 for small screens and offer smaller files? */}
+            <picture>
+              <source type="image/webp" srcSet={webpCover} />
+              <img alt="cover generated from hash" src={cover} />
+            </picture>
+            {PostPreview.getMediaOverlay(postInfo)}
           </Media>
         </GatsbyLink>
         <CardTitle
@@ -68,7 +80,6 @@ class PostPreview extends Component {
           title={`Published on ${postInfo.date}`}
           subtitle={`${postInfo.timeToRead} min read`}
         />
-
         <CardText expandable={expand}>
           {postInfo.excerpt}
           <PostTags tags={postInfo.tags} />
