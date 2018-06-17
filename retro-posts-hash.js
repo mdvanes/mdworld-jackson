@@ -12,11 +12,12 @@ const retroPosts = require(jsonPath);
 function addHash(node) {
   const shasum = crypto.createHash('sha1');
   // Do not use existing cover or hash in the shasum;
-  const shaSource = Object.assign({}, node, {cover: '', hash: ''});
+  const shaSource = Object.assign({}, node, {cover: '', webpCover: '', hash: ''});
   shasum.update(JSON.stringify(shaSource));
   const hash = shasum.digest('hex');
   const newNode = Object.assign({}, shaSource, {
-    cover: `/cover/${hash}.png`,
+    cover: `/cover/${hash}.jpg`,
+    webpCover: `/cover/${hash}.webp`,
     hash
   });
   return newNode;
