@@ -1,6 +1,14 @@
 .post-cover {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
+    //background-size: cover;
+    //background-repeat: no-repeat;
+    //background-position: 50% 50%;
     padding: 0 !important;
+
+    img {
+        width: 100%;
+    }
+}
+
+.md-media--mdworld-cover {
+    padding-bottom: percentage(0.25);
 }
