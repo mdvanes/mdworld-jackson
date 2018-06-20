@@ -1,20 +1,19 @@
-import React, { Component } from "react";
+import React from "react";
+import Media from "react-md/lib/Media";
+import PostPreview from "../PostPreview/PostPreview";
 import "./PostCover.scss";
 
-class PostCover extends Component {
+class PostCover extends PostPreview {
   render() {
-    const { postNode, mobile } = this.props;
-    const post = postNode.frontmatter;
-    /* eslint no-undef: "off" */
-    const cover = post.cover.startsWith("/")
-      ? __PATH_PREFIX__ + post.cover
-      : post.cover;
-    const coverHeight = mobile ? 180 : 350;
+    const { cover, webpCover } = PostPreview.getCoverPaths(this.props.postNode.frontmatter);
     return (
-      <div
-        style={{ backgroundImage: `url(${cover})`, height: `${coverHeight}px` }}
-        className="md-grid md-cell--9 post-cover"
-      />
+      <Media aspectRatio="mdworld-cover" className="md-grid md-cell--11">
+        {/* TODO extra breakpoint at 839-840 for small screens and offer smaller files? */}
+        <picture>
+          <source type="image/webp" srcSet={`${webpCover} 1222w`} />
+          <img alt="cover generated from hash" src={cover} />
+        </picture>
+      </Media>
     );
   }
 }
