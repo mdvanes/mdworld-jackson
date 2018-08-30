@@ -44,7 +44,7 @@ export const pageQuery = graphql`
             title
             tags
             cover
-            webpCover
+            hash
             date
           }
         }

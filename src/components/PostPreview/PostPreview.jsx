@@ -17,11 +17,7 @@ class PostPreview extends Component {
       // eslint-disable-next-line no-undef
       ? __PATH_PREFIX__ + postInfo.cover
       : postInfo.cover;
-    const webpCover = postInfo.webpCover.startsWith('/')
-      // eslint-disable-next-line no-undef
-      ? __PATH_PREFIX__ + postInfo.webpCover
-      : postInfo.webpCover;
-    return { cover, webpCover };
+    return { cover, hash: postInfo.hash };
   }
 
   static renderMediaOverlay(postInfo) {
@@ -36,13 +32,14 @@ class PostPreview extends Component {
   }
 
   static renderMedia(postInfo) {
-    const { cover, webpCover } = PostPreview.getCoverPaths(postInfo);
+    const { cover, hash } = PostPreview.getCoverPaths(postInfo);
+    const coverPathPrefix = `${cover}${hash}`;
     return (
       <Media aspectRatio="mdworld-cover">
-        {/* TODO extra breakpoint at 839-840 for small screens and offer smaller files? */}
         <picture>
-          <source type="image/webp" srcSet={`${webpCover} 1222w`} />
-          <img alt="cover generated from hash" src={cover} />
+          <source type="image/webp" srcSet={`${coverPathPrefix}-1222w.webp 1222w, ${coverPathPrefix}-640w.webp 640w`} />
+          <source type="image/jpeg" srcSet={`${coverPathPrefix}-1222w.jpg 1222w, ${coverPathPrefix}-640w.jpg 640w`} />
+          <img alt="cover generated from hash" src={`${coverPathPrefix}-640w.jpg`} />
         </picture>
         {PostPreview.renderMediaOverlay(postInfo)}
       </Media>);

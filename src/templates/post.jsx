@@ -116,7 +116,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         cover
-        webpCover
+        hash
         date
         category
         tags

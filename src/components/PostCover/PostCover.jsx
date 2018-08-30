@@ -5,13 +5,14 @@ import "./PostCover.scss";
 
 class PostCover extends PostPreview {
   render() {
-    const { cover, webpCover } = PostPreview.getCoverPaths(this.props.postNode.frontmatter);
+    const { cover, hash } = PostPreview.getCoverPaths(this.props.postNode.frontmatter);
+    const coverPathPrefix = `${cover}${hash}`;
     return (
       <Media aspectRatio="mdworld-cover" className="md-grid md-cell--11">
-        {/* TODO extra breakpoint at 839-840 for small screens and offer smaller files? */}
         <picture>
-          <source type="image/webp" srcSet={`${webpCover} 1222w`} />
-          <img alt="cover generated from hash" src={cover} />
+          <source type="image/webp" srcSet={`${coverPathPrefix}-1222w.webp 1222w, ${coverPathPrefix}-640w.webp 640w`} />
+          <source type="image/jpeg" srcSet={`${coverPathPrefix}-1222w.jpg 1222w, ${coverPathPrefix}-640w.jpg 640w`} />
+          <img alt="cover generated from hash" src={`${coverPathPrefix}-640w.jpg`} />
         </picture>
       </Media>
     );
