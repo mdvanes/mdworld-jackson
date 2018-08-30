@@ -98,9 +98,8 @@ function addHash(node) {
   }));
   const hash = shasum.digest('hex');
   const newNode = node;
-  newNode.frontmatter.cover = `/cover/${hash}.jpg`;
-  newNode.frontmatter.webpCover = `/cover/${hash}.webp`;
-  newNode.hash = hash;
+  newNode.frontmatter.cover = `/cover/`;
+  newNode.frontmatter.hash = hash;
   return newNode;
 }
 
@@ -109,7 +108,7 @@ function createCoverArt(hashArr) {
   let result = '';
   const coverPath = 'static/cover';
   const filteredHashArr = hashArr.filter(hash => {
-    const hashCoverPath = `${coverPath}/${hash}.jpg`;
+    const hashCoverPath = `${coverPath}/${hash}-1222w.jpg`;
     return !fs.existsSync(hashCoverPath);
   });
   if(filteredHashArr && filteredHashArr.length > 0) {
@@ -119,7 +118,17 @@ function createCoverArt(hashArr) {
          formats: [
              {type: 'jpg', quality: 70},
              {type: 'webp', quality: 70}
-         ]
+         ],
+         sizes: [
+         {
+           width: 1222,
+           height: 300
+         },
+         {
+           width: 640,
+           height: 162
+         }
+       ]
      }, filteredHashArr);
   } else {
     result = new Promise(resolve => resolve({status: 'All covers already exist, no covers generated'}));
@@ -138,7 +147,7 @@ exports.setFieldsOnGraphQLNodeType = ({ type, boundActionCreators }) => {
 };
 
 exports.onPostBootstrap = () => {
-  const hashes = postNodes.map(node => node.hash);
+  const hashes = postNodes.map(node => node.frontmatter.hash);
   return retroPostsHash()
     .then(retroHashes => [...hashes, ...retroHashes])
     .then(allHashes => createCoverArt(allHashes))
