@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Card from "react-md/lib/Cards/Card";
 import CardTitle from "react-md/lib/Cards/CardTitle";
 import Button from "react-md/lib/Buttons";
 import Avatar from "react-md/lib/Avatars";
@@ -8,6 +7,7 @@ import FontIcon from "react-md/lib/FontIcons";
 import GatsbyLink from "gatsby-link";
 import Media, { MediaOverlay } from "react-md/lib/Media";
 import PostTags from "../PostTags/PostTags";
+import LazyCard from './LazyCard';
 import "./PostPreview.scss";
 
 class PostPreview extends Component {
@@ -74,7 +74,7 @@ class PostPreview extends Component {
     const { mobile } = this.state;
     const expand = mobile;
     return (
-      <Card key={postInfo.path} raise className="md-grid md-cell md-cell--12">
+      <LazyCard key={postInfo.path} raise className="md-grid md-cell md-cell--12" placeholderHeight="300" placeholderKey={postInfo.path}>
         <GatsbyLink style={{ textDecoration: "none" }} to={postInfo.path}>
           {PostPreview.renderMedia(postInfo)}
         </GatsbyLink>
@@ -88,7 +88,7 @@ class PostPreview extends Component {
           {postInfo.excerpt}
           <PostTags tags={postInfo.tags} />
         </CardText>
-      </Card>
+      </LazyCard>
     );
   }
 }
