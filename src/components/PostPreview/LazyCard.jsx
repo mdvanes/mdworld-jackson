@@ -5,6 +5,7 @@
  */
 
 import React, { Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import Card from 'react-md/lib/Cards/Card';
 
 // TODO unit test
@@ -34,8 +35,9 @@ export default class LazyCard extends Component {
       this.observer = new IntersectionObserver(this.fill, {
         threshold: 0.5 /* Default is 0 (i.e. on first pixel) */
       });
-      // TODO better way to get the current element ?
-      const elem = document.querySelector(`[placeholder-key='${this.props.placeholderKey}']`);
+      // This should be fixed with ref callback, but must be done on HTMLElement, not on React Component e.g. Card
+      // eslint-disable-next-line react/no-find-dom-node
+      const elem = findDOMNode(this);
       this.observer.observe(elem);
     }
   }
@@ -45,14 +47,13 @@ export default class LazyCard extends Component {
       this.setState({children: this.props.children});
       // Deregister the observer when children are shown (alternative: observer.unobserve)
       this.observer.disconnect();
-      // console.log('DEREGISTERED', this.props.placeholderKey)
     }
   }
 
   render() {
-    const { placeholderKey, placeholderHeight, raise, className } = this.props;
+    const { placeholderHeight, raise, className } = this.props;
     return(
-      <Card placeholder-key={placeholderKey} raise={raise} className={className} style={{minHeight: `${placeholderHeight}px`}}>
+      <Card raise={raise} className={className} style={{minHeight: `${placeholderHeight}px`}}>
         {this.state.children}
       </Card>);
   }

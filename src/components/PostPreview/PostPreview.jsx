@@ -74,7 +74,12 @@ class PostPreview extends Component {
     const { mobile } = this.state;
     const expand = mobile;
     return (
-      <LazyCard key={postInfo.path} raise className="md-grid md-cell md-cell--12" placeholderHeight="300" placeholderKey={postInfo.path}>
+      <LazyCard
+        key={postInfo.path}
+        raise
+        className="md-grid md-cell md-cell--12"
+        placeholderHeight="300"
+      >
         <GatsbyLink style={{ textDecoration: "none" }} to={postInfo.path}>
           {PostPreview.renderMedia(postInfo)}
         </GatsbyLink>
