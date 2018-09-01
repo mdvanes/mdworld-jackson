@@ -7,6 +7,8 @@
 import React, { Component } from 'react';
 import Card from 'react-md/lib/Cards/Card';
 
+// TODO unit test
+
 export default class LazyCard extends Component {
 
   constructor(props) {
@@ -21,16 +23,16 @@ export default class LazyCard extends Component {
   // Will not cause re-render
   componentWillMount() {
     // If intersection observer not available, load everything at once
-    if(!window.IntersectionObserver) {
+    if(typeof window !== 'undefined' && !window.IntersectionObserver) {
       this.setState({children: this.props.children});
     }
   }
 
   // Will cause re-render
   componentDidMount() {
-    if(window.IntersectionObserver) {
+    if(typeof window !== 'undefined' && window.IntersectionObserver) {
       this.observer = new IntersectionObserver(this.fill, {
-        threshold: 1.0 /* Default is 0 TODO change to 0.1 */
+        threshold: 0.5 /* Default is 0 (i.e. on first pixel) */
       });
       // TODO better way to get the current element ?
       const elem = document.querySelector(`[placeholder-key='${this.props.placeholderKey}']`);
