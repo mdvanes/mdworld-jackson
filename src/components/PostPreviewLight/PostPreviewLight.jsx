@@ -12,7 +12,12 @@ class PostPreviewLight extends PostPreview {
     const { mobile } = this.state;
     const expand = mobile;
     return (
-      <LazyCard key={postInfo.path} raise className="md-grid md-cell md-cell--12" placeholderHeight="300" placeholderKey={postInfo.path}>
+      <LazyCard
+        key={postInfo.path}
+        raise
+        className="md-grid md-cell md-cell--12"
+        placeholderHeight="300"
+      >
         <a style={{ textDecoration: "none" }} href={postInfo.path}>
           {PostPreview.renderMedia(postInfo)}
         </a>
