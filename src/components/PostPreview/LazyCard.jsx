@@ -1,6 +1,8 @@
 /**
  * Wrapper for Card that only shows content if in view (or has been in view)
  *
+ * Replace by https://github.com/jasonslyvia/react-lazyload ?
+ *
  * TODO now for each LazyCard a new observer will be created. It is possible to solve this with one Observer per page.
  */
 
