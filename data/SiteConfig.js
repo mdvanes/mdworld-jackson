@@ -6,7 +6,7 @@ module.exports = {
   siteUrl: "https://mdworld.nl", // Domain of your website without pathPrefix.
   pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
   fixedFooter: false, // Whether the footer component is fixed, i.e. always visible
-  siteDescription: "A GatsbyJS stater with Material design in mind.", // Website description used for RSS feeds/meta description tag.
+  siteDescription: "MDWorld, a webdevelopment blog", // Website description used for RSS feeds/meta description tag and manifest.json
   siteRss: "/rss.xml", // Path to the RSS file.
   // siteFBAppID: "123", // FB Application ID for using app insights
   siteGATrackingID: "UA-9626603-1", // Tracking code ID for google analytics.
