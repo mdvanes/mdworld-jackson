@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from './DynamicLogo.module.scss';
 
 const DynamicLogo = () => {
   return (
@@ -6,9 +7,7 @@ const DynamicLogo = () => {
       xmlns="http://www.w3.org/2000/svg"
       xmlnsXlink="http://www.w3.org/1999/xlink"
       viewBox="0 0 694 586"
-      style={{
-        maxHeight: "20vh"
-      }}
+      className={styles.svg}
     >
       <title>The mdworld.nl logo</title>
       <defs>
