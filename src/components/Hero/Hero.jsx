@@ -12,7 +12,7 @@ class Hero extends React.Component {
               <h1>MDWORLD</h1>
               <h2 style={{}}>a webdevelopment blog, since 2003</h2>
             </Cell>
-            <Cell size={2} tabletSize={8} phoneSize={6}>
+            <Cell size={2} tabletSize={8} phoneSize={6} className={styles.imgWrapper}>
               <DynamicLogo />
             </Cell>
           </Grid>
