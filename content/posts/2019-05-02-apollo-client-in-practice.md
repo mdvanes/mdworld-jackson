@@ -8,7 +8,7 @@ tags:
 ---
 
 Some time ago I joined a team that is working on a search application. Implemented in React and using [Apollo](https://www.apollographql.com/) for 
-GraphQL calls, I was surprised to find it noticeably slow when a lot of search results were retrieved.
+GraphQL calls, I was surprised to find it noticeably slow when a lot of search results were retrieved. ...expand...
 
 Looking into the performance tab of Chrome dev tools lead me to believe the performance problems were caused by 
 computations in the bottom components (e.g. formatting in cells). Because there are so many and they are 
