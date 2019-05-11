@@ -24,8 +24,8 @@ between components, it was not used consistently. There were still plenty of Rea
 
 To summarize, there were two issues that needed to be solved:
 
-1. Reduce re-rendering to improve performance
-2. Centralize application state to avoid losing the state when switching view
+1. Poor performance due to excessive re-rendering
+2. Loss of application state when navigating views due to decentralized state stores
 
 Since both issues were caused by (a lack of) architecture, we redesigned the structure of the application. The original implementation used:
 
@@ -39,7 +39,7 @@ after processing the response, it stored the result in the Redux store.
 # Fixing application state with Apollo Local State
 
 When restructuring the application, Apollo Client was updated to 2.5. This version has a built-in [local state manager](https://www.apollographql.com/docs/react/essentials/local-state)
-(formerly *apollo-link-state*). and it supports REST calls with the [apollo-link-rest](https://www.apollographql.com/docs/link/links/rest) plugin. 
+(formerly *apollo-link-state*) and it supports REST calls with the [apollo-link-rest](https://www.apollographql.com/docs/link/links/rest) plugin. 
 The [apollo-boost](https://github.com/apollographql/apollo-client/tree/master/packages/apollo-boost) package contains the 
 client and several useful plugins. Adopting these means that both Redux and Axios can be removed and Apollo will be 
 used as a single source of truth. If there is a single store for the data, there is no need for synchronization and
