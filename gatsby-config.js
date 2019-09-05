@@ -19,12 +19,12 @@ module.exports = {
     }
   },
   plugins: [
-    {
-      resolve: `gatsby-source-medium`,
-      options: {
-        username: `@mdworldNL`,
-      },
-    },
+    // {
+    //   resolve: `gatsby-source-medium`,
+    //   options: {
+    //     username: `@mdworldNL`,
+    //   },
+    // },
     "gatsby-plugin-react-helmet",
     "gatsby-plugin-sass",
     {
