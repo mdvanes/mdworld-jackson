@@ -6,7 +6,7 @@ Modern stack for mdworld.nl. Uses JAMstack with [GatsbyJS](https://www.gatsbyjs.
 * Material Design colors https://react-md.mlaursen.com/customization/colors
 * fix min-height with flexbox (see about page)
 * disable twitter etc plugins
-* Get overview of all Medium.com publications with https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-medium
+* Disabled because Medium endpoint is disabled: Get overview of all Medium.com publications with https://github.com/gatsbyjs/gatsby/tree/master/packages/gatsby-source-medium
 * Get specific Medium.com post (maybe https://github.com/jondubin/gatsby-source-rss)
 * Merge Medium.com publications with Markdown/React posts
 * Cache API calls (service worker)
