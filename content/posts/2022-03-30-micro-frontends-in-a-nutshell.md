@@ -68,7 +68,7 @@ However, no framework inherently supports older versions of itself. So if a big 
 
 This could look like a bank that offers a set of public pages (e.g. the general home page, and the landing pages of its departments) referencing each other with hyperlinks and a protected monolith app with many components (e.g. checking account, subscriptions to bank products, investments on one page).
 
-...
+<simple-light-box img-path="/lightbox/mfe/hyperlinks-and-monolith.svg" img-title="Hyperlinks and Monolith"></simple-light-box>
 
 Exploring Module Federation can be worth it if continuous integration is slowed down too much because of the large amounts of tests and compilation of all the involved components. But note that there are other approaches, such as using Nx monorepos with properly set up hierarchy and running only affected tests.
 
