@@ -50,11 +50,11 @@ I won't go into all the details about the pros and cons of each of these solutio
 Note that solutions can be combined: you can have a deployment monolith (that expects components that are all using the same stack) but wrap components in Web Components to provide an abstraction layer and use different stacks to produce the Web Components. Additionally, you can use Web Components in combination with Module Federation for instance if you are migrating towards Module Federation as a Micro Frontends solution.
 Consider this schematic representation of a web application:
 
-...
+<simple-light-box img-path="/lightbox/mfe/page.svg" img-title="Overview of a page"></simple-light-box>
 
 This could be implemented with different platforms like Angular and React by wrapping them in Web Components:
 
-...
+<simple-light-box img-path="/lightbox/mfe/web-components.svg" img-title="Web Components"></simple-light-box>
 
 Module Federation is the newest solution and many libraries are still adapting to it. Last year, Nx 12 released with support for Webpack 5 and Module Federation. See a real working example here https://code-star.github.io/nx-reference-shell/ or its source in https://github.com/code-star/nx-reference.
 
@@ -76,7 +76,7 @@ Another reason to use Module Federation can be the need to support multiple fram
 
 Compare to the diagram for the earlier example using macro Web Components, you can see that lodash, Angular and React are only loaded once, despite being used by multiple isolated components:
 
-...
+<simple-light-box img-path="/lightbox/mfe/module-federation.svg" img-title="Module Federation"></simple-light-box>
 
 ## Want to know more?
 
