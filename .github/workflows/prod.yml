@@ -22,13 +22,14 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install and Build components 🔧
-          run: npm run build:pp
-        # jq line programmatically removes the homepage property from package.json for production
+        run: npm run build:pp
+
+# jq line programmatically removes the homepage property from package.json for production
 #         run: |
 #           jq -r 'del(.["homepage"])' package.json > _.json && mv _.json package.json
 #           yarn install
 #           REACT_APP_STAGE=prod yarn build
-      #     CI: false # true -> fails on warning
+#     CI: false # true -> fails on warning
 #       - name: Deploy 🚀
 #         uses: JamesIves/github-pages-deploy-action@4.0.0
 #         with:
