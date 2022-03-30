@@ -3,7 +3,7 @@ name: Deploy to Prod (https://mdworld.nl/)
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
@@ -25,6 +25,14 @@ jobs:
         run: |
           npm ci
           npm run build:pp
+      - name: Deploy 🚀
+        uses: JamesIves/github-pages-deploy-action@4.0.0
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }} # Access token from the Prod repo, set in Settings > Secrets
+          repository-name: mdvanes/mdvanes.github.io
+          branch: main # The branch the action should deploy to.
+          folder: public # The folder the action should deploy.
+          clean: true # Automatically remove deleted files from the deploy branch
 
 # jq line programmatically removes the homepage property from package.json for production
 #         run: |
@@ -32,11 +40,4 @@ jobs:
 #           yarn install
 #           REACT_APP_STAGE=prod yarn build
 #     CI: false # true -> fails on warning
-#       - name: Deploy 🚀
-#         uses: JamesIves/github-pages-deploy-action@4.0.0
-#         with:
-#           token: ${{ secrets.ACCESS_TOKEN }} # Access token from the Prod repo, set in Settings > Secrets
-#           repository-name: code-star/code-star.github.io
-#           branch: master # The branch the action should deploy to.
-#           folder: build # The folder the action should deploy.
-#           clean: true # Automatically remove deleted files from the deploy branch
+
