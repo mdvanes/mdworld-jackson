@@ -33,7 +33,7 @@ export default class SimpleListDialog extends PureComponent {
     return (
       <span>
         <button onClick={this.show} style={{border: 'none', cursor: 'pointer', padding: '0'}}>
-          <img alt={this.props.imgTitle} src={withPrefix(this.props.imgPath)} />
+          <img alt={this.props.imgTitle} src={withPrefix(this.props.imgPath)} style={{width: '100vw'}} />
         </button>
 
         {/* Portal to outside of the <p> created by post.jsx */}
