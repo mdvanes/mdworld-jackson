@@ -22,7 +22,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install and Build components 🔧
-        run: npm run build:pp
+        run: |
+          npm ci
+          npm run build:pp
 
 # jq line programmatically removes the homepage property from package.json for production
 #         run: |
