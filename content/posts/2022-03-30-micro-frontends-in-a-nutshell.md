@@ -14,7 +14,7 @@ You may have heard of a Micro Frontends recently and felt it a bit difficult to 
 
 Do you have a very large front-end code-base? 
 
-And by large, I'm talking about hundreds of developers in dozens of teams, probably cross-department, working on the same code-base in some manner. 
+And by large, I'm talking about 50+ developers in a dozen of teams or more, probably cross-department, working on the same code-base in some manner. 
 Do you have enterprise-scale continuous integration with e.g. GitLab, Bamboo running so many pipelines that the bottleneck is no longer a matter of adding more pods? 
 Do you employ configuration managers or an Ops department to make sure deployments won't affect each other too much?
 Do you have considerable codebases in incompatible front-end stacks, e.g. because of a migration from AngularJS to Angular >2?
@@ -45,7 +45,7 @@ Since Micro Frontends as a concept are not new, some solutions that can be class
 * Use macro **Web Components** as an abstraction layer for components
 * Develop frontend components in separate teams and integrate them at runtime with **Module Federation**
 
-I won't go into all the details about the pros and cons of each of these solutions. Instead I refer you to this article by my colleague Peter: https://dzone.com/articles/micro-frontends-by-example-8
+I won't go into all the details about the pros and cons of each of these solutions. Instead I refer you to the recommended reading list below.
 
 Note that solutions can be combined: you can have a deployment monolith (that expects components that are all using the same stack) but wrap components in Web Components to provide an abstraction layer and use different stacks to produce the Web Components. Additionally, you can use Web Components in combination with Module Federation for instance if you are migrating towards Module Federation as a Micro Frontends solution.
 Consider this schematic representation of a web application:
@@ -92,4 +92,6 @@ When you want more background information as a developer, you can also read the 
   * Micro Frontends introduction: https://www.angulararchitects.io/en/aktuelles/a-software-architects-approach-towards/ 
   * Micro Frontends series: https://www.angulararchitects.io/en/aktuelles/micro-apps-with-web-components-using-angular-elements/ 
   * Module Federation series: https://www.angulararchitects.io/en/aktuelles/the-microfrontend-revolution-module-federation-in-webpack-5/
-* Video: Micro Frontends: The What, the Why and the How by Peter Eijgermans https://youtu.be/TWcoziCdPkE
+* By my colleague Peter Eijgermans:
+  * Micro Frontends by Example: https://dzone.com/articles/micro-frontends-by-example-8
+  * (Video) Micro Frontends: The What, the Why and the How by Peter Eijgermans https://youtu.be/TWcoziCdPkE
