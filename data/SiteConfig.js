@@ -3,8 +3,8 @@ module.exports = {
   siteTitle: "MDWorld", // Site title.
   siteTitleAlt: "MDWorld, a webdevelopment blog", // Alternative site title for SEO.
   siteLogo: "/logos/logo-1024.png", // Logo used for SEO and manifest.
-  siteUrl: "https://mdworld.nl", // Domain of your website without pathPrefix.
-  pathPrefix: "/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
+  siteUrl: "https://mdworld.nl/", // Domain of your website without pathPrefix.
+  pathPrefix: "mdworld-jackson/", // Prefixes all links. For cases when deployed to example.github.io/gatsby-material-starter/.
   fixedFooter: false, // Whether the footer component is fixed, i.e. always visible
   siteDescription: "MDWorld, a webdevelopment blog", // Website description used for RSS feeds/meta description tag and manifest.json
   siteRss: "/rss.xml", // Path to the RSS file.
