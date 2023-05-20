@@ -3,7 +3,7 @@ name: Deploy to Prod (https://mdworld.nl/)
 on:
   push:
     branches:
-      - main
+      - production
 
 jobs:
   build:
